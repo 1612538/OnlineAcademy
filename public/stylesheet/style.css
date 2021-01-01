@@ -1,0 +1,263 @@
+body {
+    background-image: url("../image/hand-painted-watercolor-background-with-sky-clouds-shape-scaled.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: fixed;
+}
+
+.mainbox {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.pb-modalreglog-container {
+    margin-top: 100px;
+}
+
+.pb-modalreglog-legend {
+    text-align: center;
+}
+
+.pb-modalreglog-input-group {
+    margin: auto;
+}
+
+.modal-header {
+    background-color: deepskyblue;
+}
+
+.modal-title {
+    color: white;
+}
+
+.pb-modalreglog-form-reg {
+    text-align: center;
+}
+
+.pb-modalreglog-footer p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pb-modalreglog-progressbar {
+    border-radius: 2px;
+}
+
+.form-inline .btn-primary {
+    background-color: cyan;
+    border: 1px solid cornflowerblue;
+    color: black;
+}
+
+.navsetting {
+    background-color: #dddddd;
+    border: 1px solid #cccccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 20px 0 0;
+    margin-bottom: 30px;
+}
+
+.carousel-size {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 50px;
+}
+
+.carousel-inner img {
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    opacity: 0;
+}
+
+.carousel-inner:hover .carousel-caption {
+    opacity: 100%;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: 0 7px 0 7px;
+    filter: invert(100%);
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.slogan {
+    position: absolute;
+    right: 8%;
+    font-family: 'Bangers';
+    font-size: 20px;
+    padding: 10px;
+}
+
+.icon-img {
+    position: absolute;
+    width: 250px;
+    height: 170px;
+    top: -2vh;
+}
+
+.nav-item button {
+    border-radius: 0;
+    padding: 14px 30px 14px 30px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+}
+
+.navbar {
+    -moz-box-shadow: 0px 8px 8px -3px #aaa;
+    -webkit-box-shadow: 0px 8px 8px -3px #aaa;
+    box-shadow: 0px 8px 8px -3px #aaa;
+}
+
+.wallpaper {
+    background-image: url("../image/sport.jpg");
+    background-position: bottom;
+    background-size: 100%;
+    font-size: 50px;
+    text-align: center;
+    padding: 16vh;
+    color: black;
+    font-family: 'Bangers'
+}
+
+.format {
+    width: 72%;
+    margin: auto;
+    overflow: auto;
+}
+
+.table-box {
+    width: 80%;
+    margin-left: 5%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 40px 0;
+}
+
+#customers td,
+#customers th {
+    border: 0px;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: transparent;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: cyan;
+    color: dodgerblue;
+    border-bottom: 1px solid cornflowerblue;
+}
+
+.nav-tabs {
+    display: block;
+    width: 100px;
+    margin-top: 10px;
+    border: 0px;
+}
+
+.btn-outline-primary:hover {
+    background-color: deepskyblue;
+}
+
+.nav-tabs .nav-item .active {
+    background-color: deepskyblue;
+    color: white;
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid deepskyblue;
+}
+
+.nav-tabs .nav-item .nav-link {
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+    background-color: lightskyblue;
+    color: white;
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid lightskyblue;
+}
+
+.container-main .tab-content {
+    display: block;
+    border: 2px solid deepskyblue;
+    width: 100%;
+    background-color: #fefefe;
+    border-radius: 10px;
+}
+
+.container-main {
+    margin-bottom: 80px;
+    display: flex;
+    width: 86%;
+    margin-left: 7%;
+    height: 40vh;
+}
+
+h3 {
+    margin-bottom: 2vh;
+}
+
+.footer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: cyan;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+    width: 80%;
+    margin: 5vh auto 0 auto;
+    border: 2px solid deepskyblue;
+    border-bottom: 0px;
+}
+
+.card-deck {
+    width: 80%;
+    margin: 5vh auto 5vh auto;
+}
+
+.card-img-top {
+    width: 100%;
+    object-fit: cover;
+    height: 30vh;
+}
+
+.card {
+    width: 30%;
+}
+
+.card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
