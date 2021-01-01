@@ -93,6 +93,11 @@
                 <li class="nav-item">
                     <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalLoginForm">Đăng ký</button>
                 </li>
+                {{#each cats}}
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-primary">{{name}}</button>
+                </li>
+                {{/each}}
             </ul>
             <div style="margin: 7px 0 7px 0;">
                 <form class="form-inline my-2 my-lg-0" action="#">
