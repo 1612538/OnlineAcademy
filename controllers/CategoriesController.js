@@ -10,7 +10,7 @@ router.get('/', async(req, res) => {
     cats[0].isActive = true;
     res.render('home', {
         title: 'Online Academy',
-        cats: cats
+        cats: cats,
     });
 })
 

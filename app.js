@@ -4,15 +4,16 @@ const path = require('path');
 const session = require('express-session');
 const createError = require('http-errors');
 const exphbs = require('express-handlebars');
+const passport = require('./utils/passport');
 
 
 const app = express();
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const hbs = exphbs.create({
-    defaultLayout: 'main',
     extname: 'hbs',
 });
 
@@ -29,12 +30,18 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.get('/', (req, res) => {
     res.render('home', {
         title: 'Online Academy',
+        layout: 'main'
     });
 })
 
+app.use('/account', require('./controllers/AccountController'));
 app.use('/categories', require('./controllers/CategoriesController'));
 
 const port = process.env.PORT || 8080;

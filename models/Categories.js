@@ -4,7 +4,7 @@ const tbName = "category";
 module.exports = {
     all: async() => {
         const sql = `SELECT * FROM ${tbName}`;
-        const rows = await new Promise((resolve, rejects) => {
+        const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
                     reject(err);
