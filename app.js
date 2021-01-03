@@ -5,10 +5,10 @@ const session = require('express-session');
 const createError = require('http-errors');
 const exphbs = require('express-handlebars');
 const passport = require('./utils/passport');
-
+const cookieParser = require('cookie-parser')
 
 const app = express();
-
+app.use(cookieParser("somesecret"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,6 +43,7 @@ app.get('/', (req, res) => {
 
 app.use('/account', require('./controllers/AccountController'));
 app.use('/categories', require('./controllers/CategoriesController'));
+app.use('/account/management/courses', require('./controllers/CoursesController'));
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}..`));

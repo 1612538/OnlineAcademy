@@ -14,7 +14,7 @@ router.get('/login', (req, res) => {
     });
 }).post('/login', passport.authenticate('local', {
     failWithError: true,
-    successRedirect: '/'
+    successRedirect: '/account/management'
 }), (err, req, res, next) => {
     return res.render('login', {
         title: 'Online Academy - Sign In',
@@ -31,13 +31,25 @@ router.get('/create', (req, res) => {
     });
 })
 
-router.get('/secret', (req, res) => {
-    if (req.isAuthenticated()) { //trả về true nếu đã đăng nhập rồi
-        res.send('Đã đăng nhập');
+router.get('/management', (req, res) => {
+    if (req.isAuthenticated() && req.user.type == 3) { //trả về true nếu đã đăng nhập rồi
+        res.render('admin', {
+            title: 'Online Academy - Management',
+            layout: 'admin'
+        })
     } else {
         res.redirect('/account/login');
     }
 });
+
+router.get('/logout', (req, res) => {
+    if (!req.user)
+        res.redirect('/account/login');
+    else {
+        req.logOut();
+        res.redirect('/');
+    }
+})
 
 
 
