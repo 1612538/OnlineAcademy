@@ -12,7 +12,7 @@ router.get('/', async(req, res) => {
             courses: allcourses,
             layout: 'admin'
         });
-    } else res.redirect('/account/login');
+    } else res.redirect('/login');
 })
 
 router.get('/CatID=:idcourses', async(req, res) => {
@@ -25,7 +25,7 @@ router.get('/CatID=:idcourses', async(req, res) => {
             courses: allcourses,
             layout: 'courses'
         });
-    } else res.redirect('/account/login');
+    } else res.redirect('/login');
 })
 
 module.exports = router;

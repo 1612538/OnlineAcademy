@@ -28,6 +28,20 @@ module.exports = {
             return rows[0];
         else return null;
     },
+    getByCatId: async id => {
+        const sql = `SELECT * FROM ${tbName} WHERE idcategory = '${id}'`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, (err, result, field) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result);
+            })
+        });
+        if (rows.length > 0)
+            return rows;
+        else return null;
+    },
     getByName: async name => {
         const sql = `SELECT * FROM ${tbName} WHERE name = '${name}'`;
         const rows = await new Promise((resolve, reject) => {

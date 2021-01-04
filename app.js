@@ -34,16 +34,35 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.get('/', (req, res) => {
-    res.render('home', {
-        title: 'Online Academy',
-        layout: 'main'
-    });
-})
+app.use('/', require('./controllers/AccountController'));
 
-app.use('/account', require('./controllers/AccountController'));
-app.use('/categories', require('./controllers/CategoriesController'));
-app.use('/account/management/courses', require('./controllers/CoursesController'));
+app.use('/management/main-categories', loggedInAsAdmin, require('./controllers/CategoriesController'));
+app.use('/management/courses', loggedInAsAdmin, require('./controllers/CoursesController'));
+
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listening on port ${port}..`));
+
+function loggedInAsAdmin(req, res, next) {
+    if (req.isAuthenticated() && req.user.type === 3) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+function loggedInAsTeacher(req, res, next) {
+    if (req.isAuthenticated() && req.user.type === 2) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+function loggedInAUser(req, res, next) {
+    if (req.isAuthenticated() && req.user.type === 1) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
