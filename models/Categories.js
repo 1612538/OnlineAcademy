@@ -15,7 +15,7 @@ module.exports = {
         return rows;
     },
     getById: async id => {
-        const sql = `SELECT * FROM ${tbName} WHERE idsmall_category = '${id}'`;
+        const sql = `SELECT * FROM ${tbName} WHERE idcategory = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {

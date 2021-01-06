@@ -15,6 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const hbs = exphbs.create({
     extname: 'hbs',
+    helpers: {
+        if_eq: function(a, b, opts) {
+            if (a == b) return opts.fn(this);
+            else return opts.inverse(this);
+        }
+    }
 });
 
 app.engine('hbs', hbs.engine);
@@ -27,7 +33,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     secret: 'somesecret',
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 86400000 }
 }));
 
 app.use(passport.initialize());
@@ -37,7 +43,11 @@ app.use(passport.session());
 app.use('/', require('./controllers/AccountController'));
 
 app.use('/management/main-categories', loggedInAsAdmin, require('./controllers/CategoriesController'));
+app.use('/management/categories', loggedInAsAdmin, require('./controllers/SmallCatController'));
 app.use('/management/courses', loggedInAsAdmin, require('./controllers/CoursesController'));
+app.use('/management/teachers', loggedInAsAdmin, require('./controllers/TeacherController'));
+app.use('/management/admins', loggedInAsAdmin, require('./controllers/AdminController'));
+app.use('/management/users', loggedInAsAdmin, require('./controllers/UserController'));
 
 
 const port = process.env.PORT || 8080;

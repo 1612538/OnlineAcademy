@@ -55,5 +55,41 @@ module.exports = {
         if (rows.length > 0)
             return rows[0];
         else return null;
+    },
+    deleteById: async id => {
+        const sql = `DELETE FROM ${tbName} WHERE idsmall_category = '${id}'`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, (err, result, field) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result.affectedRows);
+            })
+        });
+        return rows;
+    },
+    updateByEntity: async entity => {
+        const id = entity['idsmall_category'];
+        const sql = `UPDATE ${tbName} SET ? WHERE idsmall_category = '${id}'`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, entity, (err, result, field) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result.changedRows);
+            })
+        });
+        return rows;
+    },
+    add: async entity => {
+        const sql = `INSERT INTO ${tbName} SET ?`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, entity, (err, result, field) => {
+                if (err)
+                    reject(err);
+                resolve(result.insertId);
+            })
+        });
+        return rows;
     }
 }

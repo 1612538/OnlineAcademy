@@ -16,22 +16,15 @@
                                     <ul class="nav flex-column">
                                         {{#each cats}}
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-{{idcategory}}" aria-controls="submenu-1-2">{{name}}</a>
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-{{idcategory}}" aria-controls="submenu-1-{{idcategory}}">{{name}}</a>
                                             <div id="submenu-1-{{idcategory}}" class="collapse submenu" style="">
                                                 <ul class="nav flex-column">
-                                                    {{#each smallcats.[idcategory]}}
+                                                    {{#each ../smallcats}}
+                                                    {{#if_eq this.idcategory ../this.idcategory}}
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="index.html">Javascript</a>
+                                                        <a class="nav-link" href="index.html">{{this.name}}</a>
                                                     </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="ecommerce-product.html">ASP.NET</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="ecommerce-product-single.html">PHP</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="ecommerce-product-checkout.html">Python</a>
-                                                    </li>
+                                                    {{/if_eq}}
                                                     {{/each}}
                                                 </ul>
                                             </div>
@@ -49,7 +42,7 @@
                                         </li>
                                         {{#each cats}}
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/cards.html">{{name}}</a>
+                                            <a class="nav-link" href="/management/categories/{{idcategory}}">{{name}}</a>
                                         </li>
                                         {{/each}}
                                     </ul>
@@ -60,13 +53,13 @@
                                 <div id="submenu-3" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/chart-c3.html">Admin accounts</a>
+                                            <a class="nav-link" href="/management/admins">Admin accounts</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/chart-chartist.html">Teacher accounts</a>
+                                            <a class="nav-link" href="/management/teachers">Teacher accounts</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/chart-charts.html">User accounts</a>
+                                            <a class="nav-link" href="/management/users">User accounts</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -24,9 +24,10 @@ module.exports = {
                 resolve(result);
             })
         });
+
         if (rows.length > 0)
             return rows[0];
-        return null;
+        else return null;
     },
     getById: async id => {
         const sql = `SELECT * FROM ${tbName} WHERE idadmin = '${id}'`;
@@ -42,4 +43,40 @@ module.exports = {
             return rows[0];
         else return null;
     },
+    deleteById: async id => {
+        const sql = `DELETE FROM ${tbName} WHERE idadmin = '${id}'`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, (err, result, field) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result.affectedRows);
+            })
+        });
+        return rows;
+    },
+    updateByEntity: async entity => {
+        const id = entity['idadmin'];
+        const sql = `UPDATE ${tbName} SET ? WHERE idadmin= '${id}'`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, entity, (err, result, field) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result.changedRows);
+            })
+        });
+        return rows;
+    },
+    add: async entity => {
+        const sql = `INSERT INTO ${tbName} SET ?`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, entity, (err, result, field) => {
+                if (err)
+                    reject(err);
+                resolve(result.insertId);
+            })
+        });
+        return rows;
+    }
 }

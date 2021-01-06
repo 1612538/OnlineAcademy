@@ -2,6 +2,7 @@ const passport = require('passport');
 const users = require('../models/Users');
 const admins = require('../models/Admins');
 const teachers = require('../models/Teachers');
+const bcrypt = require('./bcrypt');
 const localStrategy = require('passport-local').Strategy;
 
 passport.serializeUser((user, done) => {
@@ -35,31 +36,22 @@ passport.use(new localStrategy(
         const user = await users.getByUsername(username);
         const teacher = await teachers.getByUsername(username);
         const admin = await admins.getByUsername(username);
-        if (user) { //kiểm tra giá trị trường có name là username
-            if (password == user.password) { // kiểm tra giá trị trường có name là password
+        if (user) //kiểm tra giá trị trường có name là username
+            if (await bcrypt.checkPassword(password, user.password)) { // kiểm tra giá trị trường có name là password
                 return done(null, user);
-            } else {
-                return done(null, false); // chứng thực lỗi
             }
-        } else {
-            if (teacher) { //kiểm tra giá trị trường có name là teacher
-                if (password == teacher.password) { // kiểm tra giá trị trường có name là password
-                    return done(null, teacher);
-                } else {
-                    return done(null, false); // chứng thực lỗi
-                }
-            } else {
-                if (admin) { //kiểm tra giá trị trường có name là admin
-                    if (password == admin.password) { // kiểm tra giá trị trường có name là password
-                        return done(null, admin);
-                    } else {
-                        return done(null, false); // chứng thực lỗi
-                    }
-                } else {
-                    return done(null, false); //chứng thực lỗi
-                }
+        if (teacher) { //kiểm tra giá trị trường có name là teacher
+            if (await bcrypt.checkPassword(password, teacher.password)) { // kiểm tra giá trị trường có name là password
+                return done(null, teacher);
             }
         }
+
+        if (admin) { //kiểm tra giá trị trường có name là admin
+            if (await bcrypt.checkPassword(password, admin.password)) { // kiểm tra giá trị trường có name là password
+                return done(null, admin);
+            }
+        }
+        return done(null, false); //chứng thực lỗi
     }
 ))
 

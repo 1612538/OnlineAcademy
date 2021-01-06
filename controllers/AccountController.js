@@ -62,11 +62,7 @@ router.get('/create', (req, res) => {
 
 router.get('/management', async(req, res) => {
     const cats = await cat.all();
-    let smallcats = [];
-    for (let cat of cats) {
-        smallcats.push(await smallcat.getByCatId(cat.idcategory));
-    }
-    console.log(req.isAuthenticated());
+    let smallcats = await smallcat.all();
     if (req.isAuthenticated() && req.user.type === 3) { //trả về true nếu đã đăng nhập rồi
         res.render('admin', {
             title: 'Online Academy - Management',

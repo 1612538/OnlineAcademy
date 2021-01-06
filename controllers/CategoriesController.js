@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Cat = require('../models/Categories');
 const bodyParser = require('body-parser');
+const SmallCat = require('../models/Small_Categories');
 
 router.get('/', async(req, res) => {
     const cats = await Cat.all();
@@ -11,9 +12,11 @@ router.get('/', async(req, res) => {
         }
         cats[0].isActive = true;
     }
+    const smallcats = await SmallCat.all();
     res.render('admin_categories', {
         title: 'Management - Main Categories',
         cats: cats,
+        smallcats: smallcats,
         layout: 'admin'
     });
 })
@@ -27,13 +30,13 @@ router.post('/addCategory/', async(req, res) => {
 })
 
 router.post('/deleteCategory/:id', async(req, res) => {
-    let id = req.params.id;
+    let id = parseInt(req.params.id);
     const cat = await Cat.deleteById(id);
     res.redirect('/management/main-categories');
 })
 
 router.post('/updateCategory/:id', async(req, res) => {
-    let id = req.params.id;
+    let id = parseInt(req.params.id);
     const cat = {
         idcategory: id,
         name: req.body['catName' + id]
