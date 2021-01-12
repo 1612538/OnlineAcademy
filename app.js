@@ -42,6 +42,7 @@ app.use(passport.session());
 
 app.use('/', require('./controllers/AccountController'));
 
+app.use('/', loggedIn, require('./controllers/Account2Controller'));
 app.use('/management/main-categories', loggedInAsAdmin, require('./controllers/CategoriesController'));
 app.use('/management/categories', loggedInAsAdmin, require('./controllers/SmallCatController'));
 app.use('/management/courses', loggedInAsAdmin, require('./controllers/CoursesController'));
@@ -69,8 +70,17 @@ function loggedInAsTeacher(req, res, next) {
     }
 }
 
-function loggedInAUser(req, res, next) {
+function loggedInAsUser(req, res, next) {
     if (req.isAuthenticated() && req.user.type === 1) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+
+function loggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
         next();
     } else {
         res.redirect('/login');

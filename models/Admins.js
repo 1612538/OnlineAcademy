@@ -56,8 +56,8 @@ module.exports = {
         return rows;
     },
     updateByEntity: async entity => {
-        const id = entity['idadmin'];
-        const sql = `UPDATE ${tbName} SET ? WHERE idadmin= '${id}'`;
+        const username = entity['username'];
+        const sql = `UPDATE ${tbName} SET ? WHERE username = '${username}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, entity, (err, result, field) => {
                 if (err) {

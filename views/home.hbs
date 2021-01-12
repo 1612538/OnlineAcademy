@@ -1,111 +1,12 @@
-
-<div id="ModalLoginForm" class="modal fade">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title" style="margin-left: auto; margin-right: auto">Đăng ký</h1>
-                </div>
-                <div class="modal-body">
-                    <form role="form" method="POST" action="">
-                        <input type="hidden" name="_token" value="">
-                        <div class="form-group">
-                            <label class="control-label" style="margin-left: 20px">MSSV</label>
-                            <div>
-                                <input type="text" class="form-control input-lg" name="mssv" value="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label"  style="margin-left: 20px">Lớp</label>
-                            <div>
-                                <input type="text" class="form-control input-lg" name="lop" value="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" style="margin-left: 20px">Địa chỉ Email</label>
-                            <div>
-                                <input type="email" class="form-control input-lg" name="email" value="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" style="margin-left: 20px">Mật khẩu</label>
-                            <div>
-                                <input type="password" class="form-control input-lg" name="password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" style="margin-left: 20px">Xác nhận mật khẩu</label>
-                            <div>
-                                <input type="password" class="form-control input-lg" name="password_confirmation">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" style="margin-left: 20px">Môn đăng ký</label>
-                            <div>
-                                <input type="text" class="form-control input-lg" name="subject" value="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" style="margin-left: 20px">Ghi chú</label>
-                            <div>
-                                <input type="text" class="form-control input-lg" name="note" value="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div style="margin-left: 40%; margin-top: 25px">
-                                <button type="submit" class="btn btn-outline-primary" onclick="window.location='#top'">
-                                    Đăng ký
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- /.modal-content -->
+<div class="mainbox">
+        {{>main/headerNavbar}}
+        <div class="row" style="margin: 5vh 7% 3vh 7%;">
+        <div class="col-sm" style="padding: 0">
+            <h2 id="gioithieu" style="border-bottom: 1px solid #444444;padding-bottom: 10px">
+            Most Popular
+        </h2>
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-    <div class="mainbox">
-        <img class="icon-img" src="image/icon.png">
-        <div class="slogan">
-            Sức khoẻ đã có - deadline khỏi lo
         </div>
-        <div id="top" class="wallpaper">
-            5G2B Group
-        </div>
-        <nav class="navbar navbar-expand-sm bg-light navsetting">
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary" style="background-color: cyan; border-bottom-left-radius: 10px; color: dodgerblue;">Trang chủ</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary" onclick='window.location="#gioithieu"'>Giới thiệu</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary" onclick='window.location="#muctieu"'>Mục tiêu</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary" onclick='window.location="#lienhe"'>Liên hệ</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#ModalLoginForm">Đăng ký</button>
-                </li>
-                {{#each cats}}
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary">{{name}}</button>
-                </li>
-                {{/each}}
-            </ul>
-            <div style="margin: 7px 0 7px 0;">
-                <form class="form-inline my-2 my-lg-0" action="#">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm...">
-                    <button class="btn btn-primary" type="submit"><i style="color: dodgerblue" class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
         <div class="carousel-size">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -115,19 +16,19 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block" src="image/24-08-2020-truong-dai-hoc-the-duc-the-thao-tphcm-to-chuc-ky-thi-nang-khieu-the-thao-bac-dai-hoc-chinh-quy-349264C3.jpg" alt="First slide">
+                        <img class="d-block imgBig" src="image/24-08-2020-truong-dai-hoc-the-duc-the-thao-tphcm-to-chuc-ky-thi-nang-khieu-the-thao-bac-dai-hoc-chinh-quy-349264C3.jpg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block fade">
                             <h5>Trường Đại học Thể dục thể thao TPHCM tổ chức kỳ thi năng khiếu thể thao bậc Đại học chính quy</h5>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block" src="image/3.jpg" alt="Second slide">
+                        <img class="d-block imgBig" src="image/3.jpg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block fade">
                             <h5>Phương án tuyển sinh Trường đại học Sư phạm thể dục thể thao Hà Nội năm 2019</h5>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block" src="image/hinh1.jpg" alt="Third slide">
+                        <img class="d-block imgBig" src="image/hinh1.jpg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block fade">
                             <h5>Tưng bừng khai mạc đại hội thể thao sinh viên đại học đà nẵng lần thứ XI năm 2019</h5>
                         </div>
@@ -143,15 +44,23 @@
                 </a>
             </div>
         </div>
-
-        <h2 id="gioithieu" style="margin: 5vh 7% 3vh 7%; border-bottom: 1px solid #aaaaaa;">
-            Giới thiệu
+        <div class="row" style="margin: 5vh 7% 2vh 7%;">
+        <div class="col-sm-10" style="padding: 0">
+            <h2 id="gioithieu" style="border-bottom: 1px solid #444444;padding-bottom: 10px">
+            Top Viewed
         </h2>
-        <p style="width: 90%; margin: auto">Song song với các hoạt động nghiên cứu khoa học, trao đổi kiến thức và rèn luyện kĩ năng mềm để trang bị cho cuộc sống thì giáo dục thể chất được xem là một trong những yêu cầu cần thiết trong quá trình hoàn thiện bản thân của HSSV. Hoạt động
-            thể thao giúp sinh viên tăng cường sức khỏe bản thân, giảm stress, nâng cao tính tự giác cá nhân, xây dựng cuộc sống lành mạnh đồng thời rèn tính kỷ luật, tinh thần đồng đội để phát triển một cách toàn diện. Vı̀ vậy, cần thiết phải có
-            các giải pháp hiệu quả để cải thiện hoạt động thể chất của sinh viên ULIS.</p>
-
-        <div class="card-deck">
+        </div>
+        <div class="col-sm-2" style="padding: 0">
+            <div style="border-bottom: 1px solid #444444;padding-bottom: 10px; padding-left: 20%;">
+            <a class="btn btn-secondary" style="margin: 0 5px 0 5px; padding-left: 20px; padding-right: 20px" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+            <a class="btn btn-secondary" style="margin: 0 5px 0 5px; padding-left: 20px; padding-right: 20px" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+        </div>
+        <div id="multi-item-example" class="card-deck-row carousel slide carousel-multi-item"  data-interval="false">
+            <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+            <div class="row">
             <div class="card">
                 <img class="card-img-top" src="http://suckhoedoisong.vn/Images/nguyenkhanh/2017/04/12/the_duc_the_thao.jpg" alt="Card image cap">
                 <div class="card-body">
@@ -184,68 +93,150 @@
                     <small class="text-muted">Cập nhật vào 2 ngày trước</small>
                 </div>
             </div>
-        </div>
-        <h2 id="muctieu" style="margin: 5vh 7% 3vh 7%; border-bottom: 1px solid #aaaaaa;">
-            Mục tiêu
-        </h2>
-        <div style="width: 90%; margin: auto">
-            <p>
-                <p>Dự án này được viết với mục tiêu chung nhằm nâng cao, phổ biến và khuyến khích các hoạt động thể chất của sinh viên Trường ĐHNN-ĐHQG Hà Nội. Sau khi kết thúc dự án, sinh viên có thể:</p>
-                <ul>
-                    <li> Ý thức được tầm quan trọng của hoạt động thể dục thể thao.</li>
-                    <li> Tham gia các hoạt động thể chất được tổ chức trong và ngoài trường </li>
-                    <li> Biết cách rèn luyện để cải thiện sức khỏe cá nhân, có một lối sống lành mạnh </li>
-                    <li> Nâng cao tính tự giác, kiên trì, tinh thần đồng đội ...</li>
-                </ul>
-            </p>
-        </div>
-        <h2 style="margin: 5vh 7% 3vh 7%; border-bottom: 1px solid #aaaaaa;">Tổng quan về 5 lợi ích của việc rèn luyện thể chất</h2> <br>
-        <div class="container-main">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#tab1">1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#tab2">2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#tab3">3</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#tab4">4</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#tab5">5</a>
-                </li>
-            </ul>
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="carousel-item">
 
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div id="tab1" class="container tab-pane active"><br>
-                    <h3>Về mặt tinh thần</h3>
-                    <p> Góp phần giữ gìn sức khỏe, nâng cao thể lực và cải thiện vóc dáng giúp bạn có thể vượt qua mọi deadline và kỳ thi căng thẳng.</p>
+            <div class="row">
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
                 </div>
-                <div id="tab2" class="container tab-pane fade"><br>
-                    <h3>Về mặt sức khoẻ</h3>
-                    <p>Tạo dựng cơ sở cho sự phát triển năng lực thể chất toàn diện, hoàn thiện bản thân và rèn luyện các kỹ năng mềm (teamwork, phản xạ, thích ứng...)</p>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
                 </div>
-                <div id="tab3" class="container tab-pane fade"><br>
-                    <h3>Về mặt tâm lý</h3>
-                    <p>Thể thao giúp giảm stress đồng thời đem đến một giấc ngủ ngon để nạp lại năng lượng tích cực cho một ngày mới đầy niềm vui và thử thách.</p>
-                </div>
-                <div id="tab4" class="container tab-pane fade"><br>
-                    <h3>Về mặt y học</h3>
-                    <p>Rèn luyện thể chất thường xuyên còn bảo vệ chúng ta khỏi một số căn bệnh như đau cơ, đau đầu, mệt mỏi, trầm cảm...</p>
-                </div>
-                <div id="tab5" class="container tab-pane fade"><br>
-                    <h3>Về mặt xã hội</h3>
-                    <p>Thể thao cũng giúp chúng ta làm quen thêm nhiều người bạn mới, mở rộng mối quan hệ xã hội của mình và nếu may mắn, bạn sẽ tìm được "duyên" của mình</p>
-                </div>
+            </div>
+            </div>
+            </div>
             </div>
         </div>
 
-        <h2 id="danhgia" style="margin: 5vh 7% 3vh 7%; border-bottom: 1px solid #aaaaaa;">
+        <div class="row" style="margin: 5vh 7% 0 7%;">
+        <div class="col-sm-10" style="padding: 0">
+            <h2 id="gioithieu" style="border-bottom: 1px solid #444444;padding-bottom: 10px">
+            Top Newest
+        </h2>
+        </div>
+        <div class="col-sm-2" style="padding: 0">
+            <div style="border-bottom: 1px solid #444444;padding-bottom: 10px; padding-left: 20%;">
+            <a class="btn btn-secondary" style="margin: 0 5px 0 5px; padding-left: 20px; padding-right: 20px" href="#multi-item-example2" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+            <a class="btn btn-secondary" style="margin: 0 5px 0 5px; padding-left: 20px; padding-right: 20px" href="#multi-item-example2" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+        </div>
+        <div id="multi-item-example2" class="card-deck-row carousel slide carousel-multi-item"  data-interval="false">
+            <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+            <div class="row">
+            <div class="card">
+                <img class="card-img-top" src="http://suckhoedoisong.vn/Images/nguyenkhanh/2017/04/12/the_duc_the_thao.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Thể dục - thể thao và sức khỏe tinh thần</h5>
+                    <p class="card-text">Khoa học đã chứng minh được rằng, các hoạt động thể dục - thể thao (TDTT) không chỉ tốt cho sức khỏe thể chất, mà còn mang lại nhiều lợi ích vô giá đối với đời sống tinh thần và hiệu quả làm việc của con người.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 4 tiếng trước</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://vinmec-prod.s3.amazonaws.com/images/20190607_060744_990408_tap-the-duc-buoi-sang.max-800x800.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Tập thể dục: 7 lợi ích của hoạt động thể chất thường xuyên</h5>
+                    <p class="card-text">Bài viết được tư vấn chuyên môn bởi ThS.BS Vũ Thị Tuyết Mai - Bác sĩ Nội Tim mạch - Trung tâm Tim mạch - Bệnh viện Đa khoa Quốc tế Vinmec Central Park. Tập thể dục và hoạt động thể chất là những cách tuyệt vời để cảm thấy tốt hơn,
+                        tăng cường sức khỏe và tận hưởng cuộc sống.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 6 tiếng trước</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="carousel-item">
+
+            <div class="row">
+            <div class="card">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin: 5vh 7% 0 7%;">
+        <div class="col" style="padding: 0">
+            <h2 id="gioithieu" style="border-bottom: 1px solid #444444;padding-bottom: 10px">
+            Top popular Categories 
+        </h2>
+        </div>
+        </div>
+
+        <h2 id="danhgia" style="margin: 5vh 7% 3vh 7%; border-bottom: 1px solid #444444;">
             Đánh giá của người dùng
         </h2>
         <div class="format">
@@ -259,41 +250,5 @@
             });
         </script>
     </div>
-    <div class="footer" id="lienhe">
-        <div class="table-box">
-            <div class="container">
-                <h2 style="margin-bottom: 2vh">Liên hệ</h2>
-                <table id="customers" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Về website</th>
-                            <th>Về thông tin nhóm</th>
-                            <th>Tài liệu tham khảo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p>Tạo bởi 5G2B groups</p>
-                                <p>Email: 5G2Bteam@gmail.com</p>
-                                <p>Số điện thoại: 0916 345 530</p>
-                            </td>
-                            <td>
-                                <a type="button" class="btn" data-toggle="collapse" data-target="#listMember" style="margin-top: -7px">Danh sách thành viên <img src="https://www.libreriasanjorge.com.ar/core/vendors/v24/icons/material.io/android/drawable-xxxhdpi/ic_keyboard_arrow_down_black_48dp.png" style="width: 25px; height: 25px;"></a>
-                                <div id="listMember" class="collapse" style="margin-left: 7%;">
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">1. Nguyễn Thu Hương</p>
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">2. Trần Thị Khánh Huyền</p>
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">3. Nguyễn Huy Hưng</p>
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">4. Vi Tiến Hưng</p>
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">5. Đinh Thu Hương</p>
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">6. Trần Minh Hương</p>
-                                    <p style="border-top: 1px solid dodgerblue; margin: 0px;padding: 5px">7. Trịnh Thu Hường</p>
-                                </div>
-                            </td>
-                            <td>w3schools.com</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    {{>main/footer}}
+    

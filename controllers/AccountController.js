@@ -7,19 +7,29 @@ const admins = require('../models/Admins');
 const passport = require('../utils/passport');
 const smallcat = require('../models/Small_Categories');
 const cat = require('../models/Categories');
+const bcrypt = require('../utils/bcrypt');
 
-router.get('/', (req, res) => {
-    if (req.isAuthenticated())
+router.get('/', async(req, res) => {
+    const cats = await cat.all();
+    const smallcats = await smallcat.all();
+    let type = 0;
+    let username = null;
+    if (req.isAuthenticated()) {
+        username = req.user.username;
         if (req.user.type === 3)
-            res.redirect('/management');
-        else
-            res.redirect('/mainboard');
-    else {
-        res.render('home', {
-            title: 'Online Academy',
-            layout: 'main'
-        });
+            type = 3;
+        else if (req.user.type === 2)
+            type = 2;
+        else type = 1;
     }
+    res.render('home', {
+        title: 'Online Academy',
+        cats: cats,
+        smallcats: smallcats,
+        type: type,
+        username: username,
+        layout: 'main'
+    });
 })
 
 router.get('/login', (req, res) => {
@@ -52,53 +62,40 @@ router.get('/login', (req, res) => {
     })(req, res, next)
 });
 
-router.get('/create', (req, res) => {
+router.get('/signup', (req, res) => {
     res.render('signup', {
         title: 'Online Academy - Sign Up',
-        disp: 'none',
+        fail: req.query.fail,
+        message: req.query.message,
         layout: 'account'
     });
+}).post('/signup', async(req, res) => {
+    const check1 = await users.getByUsername(req.body.username);
+    const check11 = await teachers.getByUsername(req.body.username);
+    const check12 = await admins.getByUsername(req.body.username);
+    const check2 = await users.getByEmail(req.body.email);
+    const check21 = await teachers.getByEmail(req.body.email);
+    if (check1 != null || check11 != null || check12 != null)
+        return res.redirect('/signup?fail=true&message=Username has already been used.');
+    else if (check2 != null || check21 != null)
+        return res.redirect('/signup?fail=true&message=This email has already been used.');
+    const user = {
+        username: req.body.username,
+        password: await bcrypt.hashPassword(req.body.password),
+        email: req.body.email,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname
+    }
+    const iduser = await users.add(user);
+    req.login(user, function(err) {
+        if (err) {
+            return next(err);
+        } else {
+            return res.redirect('/');
+        }
+    })
 })
 
-router.get('/management', async(req, res) => {
-    const cats = await cat.all();
-    let smallcats = await smallcat.all();
-    if (req.isAuthenticated() && req.user.type === 3) { //trả về true nếu đã đăng nhập rồi
-        res.render('admin', {
-            title: 'Online Academy - Management',
-            cats: cats,
-            smallcats: smallcats,
-            layout: 'admin'
-        })
-
-    } else
-        res.redirect('/');
-});
-
-router.get('/mainboard', async(req, res) => {
-    const cats = await cat.all();
-    let smallcats = [];
-    for (let cat of cats) {
-        smallcats.push(await smallcat.getByCatId(cat.idcategory));
-    }
-    if (req.isAuthenticated() && req.user.type === 2) {
-        res.render('teacher', {
-            title: 'Online Academy - Mainboard',
-            cats: cats,
-            smallcats: smallcats,
-            layout: 'teacher'
-        })
-    } else
-    if (req.isAuthenticated() && req.user.type === 1) {
-        res.render('student', {
-            title: 'Online Academy - Mainboard',
-            cats: cats,
-            smallcats: smallcats,
-            layout: 'student'
-        })
-    } else
-        res.redirect('/');
-});
 
 router.get('/logout', (req, res) => {
     if (!req.user)

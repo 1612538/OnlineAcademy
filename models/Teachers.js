@@ -28,6 +28,22 @@ module.exports = {
             return rows[0];
         else return null;
     },
+
+    getByEmail: async email => {
+        const sql = `SELECT * FROM ${tbName} WHERE email = '${email}'`;
+        const rows = await new Promise((resolve, reject) => {
+            db.query(sql, (err, result, field) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result);
+            })
+        });
+        if (rows.length > 0)
+            return rows[0];
+        else return null;
+    },
+
     getById: async id => {
         const sql = `SELECT * FROM ${tbName} WHERE idteacher = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
@@ -55,8 +71,8 @@ module.exports = {
         return rows;
     },
     updateByEntity: async entity => {
-        const id = entity['idteacher'];
-        const sql = `UPDATE ${tbName} SET ? WHERE idteacher = '${id}'`;
+        const username = entity['username'];
+        const sql = `UPDATE ${tbName} SET ? WHERE username = '${username}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, entity, (err, result, field) => {
                 if (err) {
