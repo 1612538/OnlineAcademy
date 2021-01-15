@@ -1,0 +1,39 @@
+<div class="mainbox">
+    {{>main/headerNavbar}}
+</div>
+<div class="mainbox2">
+    <div style="padding: 3vh 3% 3vh 3%">
+    <div class="row my-2">
+        <div class="col-lg-9 order-lg-1 container-main">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a href="/searchResult?keyword={{keyword}}&searchByCourse=true" data-target="#courses" data-toggle="tab" class="nav-link active">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/searchResult?keyword={{keyword}}&searchByCourse=false" data-target="#categories" data-toggle="tab" class="nav-link">Categories</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="container tab-pane {{#if searchByCourse}}active{{else}}fade{{#if}}" id="courses">
+                    <h5 class="mb-3">Search courses by "{{keyword}}"</h5>
+                    <div class="row">
+                        
+                    </div>
+                    <!--/row-->
+                </div>
+
+                <div class="container tab-pane {{#if searchByCourse}}fade{{else}}active{{#if}}" id="categories">
+                    <h5 class="mb-3">Search "{{keyword}}"</h5>
+                    <div class="row">
+                        
+                    </div>
+                    <!--/row-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mainbox">
+    {{>main/footer}}
+</div>

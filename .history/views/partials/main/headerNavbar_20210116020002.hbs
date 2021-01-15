@@ -1,0 +1,82 @@
+<div id="top" class="wallpaper">
+            Online Academy
+        </div>
+        <nav class="navbar navbar-expand-sm bg-light navsetting">
+            <!-- Links -->
+            <ul class="navbar-nav mr-5">
+                <li class="nav-item">
+                    <a href="/"><button type="button" class="btn btn-outline-primary" style="background-color: cyan; border-bottom-left-radius: 10px; color: dodgerblue;">Home</button></a>
+                </li>
+                <li class="nav-item">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <i class="fas fa-angle-down"></i></button>
+                        <ul id="dropdownMenuButton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {{#each cats}}
+                        <li class="dropdown-submenu"><a class="dropdown-item" href="/catID={{idcategory}}" data-flip="false">{{name}} <i class="fas fa-angle-right" style="float: right; margin-top: 5px"></i></a>
+                        <ul class="dropdown-menu">
+                            {{#each ../smallcats}}
+                            {{#if_eq this.idcategory ../this.idcategory}}
+                            <li style="width: 250px"><a class="dropdown-item" href="/catID={{this.idcategory}}/smallcatID={{this.idsmall_category}}">{{this.name}}</a></li>
+                            {{/if_eq}}
+                            {{/each}}
+                        </ul>
+                        </li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div style="margin: 7px 10px 7px 0; width: 40%">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/searchResult" name="searchForm" id="searchForm">
+                    <label class="form-label mr-4" style="color: dodgerblue;">Search: </label>
+                    <input class="form-control mr-sm-auto" style="width: 80%" type="text" placeholder="Tìm...">
+                    <button class="btn btn-primary" type="submit"><i style="color: dodgerblue" class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <ul class="navbar-nav ml-auto">
+                {{#if_eq type 3}}
+                <li class="nav-item">
+                    <a href="/management"><button type="button" class="btn btn-outline-primary" style="border: 0px">Administrator</button></a>
+                </li>
+                <li class="nav-item aflexbox">
+                    <p style="white-space: nowrap;">Welcome, <a href="/myAccount">{{username}}</a>!</p>
+                </li>
+                <li class="nav-item aflexbox">
+                    <p style="white-space: nowrap;"><a href="/logout">Logout</a></p>
+                </li>
+                {{/if_eq}}
+                {{#if_eq type 2}}
+                <li class="nav-item">
+                    <a href="/CreateCourse"><button type="button" class="btn btn-outline-primary" style="border: 0px">Create Course</button></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/mainboard2"><button type="button" class="btn btn-outline-primary" style="border: 0px">My Courses</button></a>
+                </li>
+                <li class="nav-item aflexbox">
+                    <p style="white-space: nowrap;">Welcome, <a href="/myAccount">{{username}}</a>!</p>
+                </li>
+                <li class="nav-item aflexbox">
+                    <p style="white-space: nowrap;"><a href="/logout">Logout</a></p>
+                </li>
+                {{/if_eq}}
+                {{#if_eq type 1}}
+                <li class="nav-item">
+                    <a href="/mainboard1"><button type="button" class="btn btn-outline-primary" style="border: 0px">My Courses</button></a>
+                </li>
+                <li class="nav-item aflexbox">
+                    <p style="white-space: nowrap;">Welcome, <a href="/myAccount">{{username}}</a>!</p>
+                </li>
+                <li class="nav-item aflexbox">
+                    <p style="white-space: nowrap;"><a href="/logout">Logout</a></p>
+                </li>
+                {{/if_eq}}
+                {{#if_eq type 0}}
+                <li class="nav-item">
+                    <a href="/login"><button type="button" class="btn btn-outline-primary" style="border: 0px">Sign In</button></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/signup"><button type="button" class="btn btn-outline-primary" style="border: 0px">Sign Up</button></a>
+                </li>
+                {{/if_eq}}
+            </ul>
+        </nav>
