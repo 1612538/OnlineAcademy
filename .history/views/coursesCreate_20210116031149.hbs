@@ -1,0 +1,66 @@
+<div class="mainbox">
+    {{>main/headerNavbar}}
+</div>
+
+<div class="card" style="width: 80%; margin-left: 10%;">
+	<div class="row">
+<article class="card-body p-5">
+	<h3 class="title mb-3">Create a new course</h3>
+<form>
+    <div class="row">
+    <div class="form-group col-6">
+    <label for="imageInput"><b>Course Avatar</b></label>
+<div class="custom-file">
+    <label class="custom-file-label" for="imageInput">Choose image</label>
+    <input type="file" class="custom-file-input" id="imageInput" name="imageInput">
+  </div></div>
+  <div class="form-group col-6">
+    <label for="courseName"><b>Course name</b></label>
+    <input type="text" class="form-control" id="courseName" name="courseName" placeholder="Name">
+  </div>
+  </div>
+    <div class="row">
+    <div class="form-group col-6">
+    <label for="slideInput"><b>Course's slide</b></label>
+<div class="custom-file">
+    <label class="custom-file-label" for="slideInput">Choose file</label>
+    <input type="file" class="custom-file-input" id="slideInput" name="slideInput">
+  </div></div>
+  <div class="form-group col-6">
+    <label for="priceInput"><b>Course price</b></label>
+    <input type="text" class="form-control" id="priceInput" name="priceInput" placeholder="Price">
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="briefDesc"><b>Brief description</b></label>
+    <textarea class="form-control" id="briefDesc" name="briefDesc" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="detailDesc"><b>Detail description</b></label>
+    <textarea class="form-control" id="detailDesc" name="detailDesc" rows="3"></textarea>
+  </div>
+    <div class="mr-10">
+    <button type="submit" class="btn btn-primary float-right">Create course</button></div>
+</form>
+</article> <!-- card-body.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+
+</div> <!-- card.// -->
+<div class="rating"><input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+    </div>
+
+</div>
+<div class="mainbox">
+    {{>main/footer}}
+</div>
+
+  <script src="https://cdn.tiny.cloud/1/otctwiwx64xpg43a8fgb5s5u7yt1lm44q1luvjzfhuyi77uh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'#detailDesc'});</script>
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>

@@ -1,0 +1,43 @@
+<div class="mainbox">
+    {{>main/headerNavbar}}
+</div>
+
+<div class="card" style="width: 80%; margin-left: 10%;">
+	<div class="row">
+<article class="card-body p-5">
+	<h3 class="title mb-3">Create a new course</h3>
+<form>
+    <div class="custom-file form-group">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+    <input type="file" class="custom-file-input" id="customFile">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Course name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Another label</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+  </div>
+
+</form>
+</article> <!-- card-body.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+
+</div> <!-- card.// -->
+<div class="rating"><input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+    </div>
+
+</div>
+<div class="mainbox">
+    {{>main/footer}}
+</div>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
