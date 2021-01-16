@@ -24,12 +24,19 @@ router.get('/catID=:id', async(req, res) => {
         else type = 1;
     }
     const currentCat = await cat.getById(req.params.id);
+    const allScat = await smallcat.getByCatId(req.params.id);
+    let courses = [];
+    for (let c of allScat) {
+        let cour = await Courses.getByCatID(c.idsmall_category);
+        courses = courses.concat(cour);
+    }
     res.render('coursesViewByCat', {
         title: 'Online Academy - ' + currentCat.name,
         cats: cats,
         smallcats: smallcats,
         type: type,
         username: username,
+        courses: courses,
         category: currentCat.name,
         layout: 'main'
     });
@@ -49,6 +56,7 @@ router.get('/smallcatID=:scatid', async(req, res) => {
         else type = 1;
     }
     const currentCat = await smallcat.getById(req.params.scatid);
+    let course = await Courses.getByCatID(req.params.scatid);
     res.render('coursesViewByCat', {
         title: 'Online Academy - ' + currentCat.name,
         cats: cats,
@@ -56,6 +64,7 @@ router.get('/smallcatID=:scatid', async(req, res) => {
         type: type,
         username: username,
         category: currentCat.name,
+        courses: course,
         layout: 'main'
     });
 });

@@ -1,0 +1,41 @@
+<div class="mainbox">
+    {{>main/headerNavbar}}
+</div>
+<div class="mainbox2" style="height:max-content; border: 0px; background-color:transparent">
+    <div style="padding: 3vh 3% 3vh 3%">
+    <div class="row my-2">
+        <div class="col-lg-11 order-lg-1 container-main">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a href="" data-target="#courses" data-toggle="tab" class="nav-link active">Courses</a>
+                </li>
+            </ul>
+            <div class="tab-content" style="background-color: transparent;">
+                <div class="container tab-pane active" id="courses">
+                    <h5 class="mb-3">Courses related to "{{category}}"</h5>
+                    {{#each courses}}
+                    {{#if_eq (math @key "%" 5) 0}}<div class="row" style="justify-content: center; align-items: center">{{/if_eq}}
+                        <div class="card" style="width: 21%">
+                <img class="card-img-top" src="{{img}}" alt="{{@key}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{description1}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last Update: {{lastupdate}}</small>
+                </div>
+            </div>
+            
+                    {{#if_eq (math @key "%" 5) 4}}</div>{{/if_eq}}
+                    {{#if_eq (math @key "+" 1) (../courses.length)}}</div>{{/if_eq}}
+                    {{/each}}
+                    <!--/row-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mainbox">
+    {{>main/footer}}
+</div>

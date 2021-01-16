@@ -16,7 +16,7 @@
                         <ul class="dropdown-menu">
                             {{#each ../smallcats}}
                             {{#if_eq this.idcategory ../this.idcategory}}
-                            <li style="width: 250px"><a class="dropdown-item" href="/catID={{this.idcategory}}/smallcatID={{this.idsmall_category}}">{{this.name}}</a></li>
+                            <li style="width: 250px"><a class="dropdown-item" href="/smallcatID={{this.idsmall_category}}">{{this.name}}</a></li>
                             {{/if_eq}}
                             {{/each}}
                         </ul>

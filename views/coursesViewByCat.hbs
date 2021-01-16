@@ -13,98 +13,22 @@
             <div class="tab-content" style="background-color: transparent;">
                 <div class="container tab-pane active" id="courses">
                     <h5 class="mb-3">Courses related to "{{category}}"</h5>
-                    <div class="row" style="justify-content: center; align-items: center">
+                    {{#each courses}}
+                    {{#if_eq (math @key "%" 4) 0}}<div class="row" style="justify-content: center; align-items: center">{{/if_eq}}
                         <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <a href="detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
                 <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{description1}}</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                    <small class="text-muted">Last Update: {{lastupdate}}</small>
                 </div>
             </div>
-            <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-            <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-            <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-                    </div>
-                    <div class="row" style="justify-content: center; align-items: center">
-                        <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-            <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-            <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-            <div class="card" style="width: 21%">
-                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
-                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
-                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
-                </div>
-            </div>
-                    </div>
+            
+                    {{#if_eq (math @key "%" 4) 3}}</div>{{/if_eq}}
+                    {{#if_eq (math @key "+" 1) ../courses.length}}</div>{{/if_eq}}
+                    {{/each}}
                     <!--/row-->
                 </div>
             </div>

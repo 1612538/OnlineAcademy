@@ -28,6 +28,7 @@ router.get('/CreateCourse', async(req, res) => {
         smallcats: smallcats,
         type: type,
         username: req.user.username,
+        createSuccess: req.query.createSuccess,
         layout: 'main'
     });
 }).post('/CreateCourse', upload.fields([
@@ -47,11 +48,11 @@ router.get('/CreateCourse', async(req, res) => {
         isCompleted: 0,
         img: '/tmp/my-uploads/' + req.files['imageInput'][0].filename,
         slidepreview: '/tmp/my-uploads/' + req.files['slideInput'][0].filename,
+        subscribes: 0
     }
     console.log(course);
     const row = await Courses.add(course);
-
-    return res.redirect('/teacher/CreateCourse');
+    return res.redirect('/teacher/CreateCourse?createSuccess=true');
 })
 
 function currentDate() {

@@ -1,0 +1,40 @@
+<div class="mainbox">
+    {{>main/headerNavbar}}
+</div>
+<div class="mainbox2" style="height:max-content; border: 0px; background-color:transparent">
+    <div style="padding: 3vh 3% 3vh 3%">
+    <div class="row my-2">
+        <div class="col-lg-11 order-lg-1 container-main">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a href="" data-target="#courses" data-toggle="tab" class="nav-link active">Courses</a>
+                </li>
+            </ul>
+            <div class="tab-content" style="background-color: transparent;">
+                <div class="container tab-pane active" id="courses">
+                    <h5 class="mb-3">Courses related to "{{category}}"</h5>
+                    {{#each courses}}
+                    {{#if_eq {{@key}}}}<div class="row" style="justify-content: center; align-items: center">
+                        <div class="card" style="width: 21%">
+                <img class="card-img-top" src="https://gymme.vn/wp-content/uploads/2020/08/4-L%C3%BD-do-n%C3%AAn-ch%E1%BB%8Dn-Yoga-thay-cho-c%C3%A1c-b%E1%BB%99-m%C3%B4n-th%E1%BB%83-thao-kh%C3%A1c-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">10 bộ môn thể thao rèn luyện sức khỏe tốt nhất để cơ thể khỏe mạnh trong tình hình dịch bệnh COVID</h5>
+                    <p class="card-text">Rèn luyện sức khỏe mỗi ngày giúp bạn sở hữu một cơ thể khỏe mạnh, tinh thần thoải mái để chung tay phòng chống dịch hiệu quả Bài viết dưới đây xin được chia sẻ cùng bạn các bộ môn thể thao cách luyện sức khỏe tốt nhất tại nhà. Đây
+                        đều là những cách tập luyện hết sức đơn giản, quen thuộc, chỉ cần bạn kiên trì và thực hiện đúng cách sẽ mang lại hiệu quả tuyệt vời cho sức khỏe và tinh thần.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Cập nhật vào 2 ngày trước</small>
+                </div>
+            </div>
+            
+                    </div>
+                    <!--/row-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mainbox">
+    {{>main/footer}}
+</div>
