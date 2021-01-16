@@ -10,17 +10,16 @@
         <div class="carousel-size">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    {{#each course}}
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{@key}}" {{#if_eq @key 0}}class="active"{{/if_eq}}></li>
-                    {{/each}}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
                     {{#each course}}
                     <div class="carousel-item {{#if_eq @key 0}}active{{/if_eq}}">
                         <img class="d-block imgBig" src="{{img}}" alt="First slide">
                         <div class="carousel-caption d-none d-md-block fade">
-                            <h5 style="background-color:rgba(255,255,255, 0.5); color:black">{{name}}</h5>
-                            <h6 style="background-color:rgba(255,255,255, 0.5); color: black">{{description1}}</h6>
+                            <h5>{{name}}</h5>
                         </div>
                     </div>
                     {{/each}}
@@ -64,8 +63,6 @@
             </div>
             {{#if_eq (math @key "%" 5) 4}}</div>
             </div>{{/if_eq}}
-            {{#if_eq (math @key "+" 1) ../courses.length}}</div>
-            </div>{{/if_eq}}
             {{/each}}
             </div>
         </div>
@@ -98,8 +95,6 @@
                 </div>
             </div>
             {{#if_eq (math @key "%" 5) 4}}</div>
-            </div>{{/if_eq}}
-            {{#if_eq (math @key "+" 1) ../courses.length}}</div>
             </div>{{/if_eq}}
             {{/each}}
             </div>

@@ -19,8 +19,7 @@
                     <div class="carousel-item {{#if_eq @key 0}}active{{/if_eq}}">
                         <img class="d-block imgBig" src="{{img}}" alt="First slide">
                         <div class="carousel-caption d-none d-md-block fade">
-                            <h5 style="background-color:rgba(255,255,255, 0.5); color:black">{{name}}</h5>
-                            <h6 style="background-color:rgba(255,255,255, 0.5); color: black">{{description1}}</h6>
+                            <h5 style="background-color:rgba(160, 160, 160, 0.7)">{{name}}</h5>
                         </div>
                     </div>
                     {{/each}}
@@ -64,8 +63,6 @@
             </div>
             {{#if_eq (math @key "%" 5) 4}}</div>
             </div>{{/if_eq}}
-            {{#if_eq (math @key "+" 1) ../courses.length}}</div>
-            </div>{{/if_eq}}
             {{/each}}
             </div>
         </div>
@@ -83,28 +80,7 @@
             </div>
         </div>
         </div>
-        <div id="multi-item-example2" class="card-deck-row carousel slide carousel-multi-item"  data-interval="false">
-            <div class="carousel-inner" role="listbox">
-            {{#each courses}}
-            {{#if_eq (math @key "%" 5) 0}}<div class="carousel-item {{#if_eq @key 0}}active{{/if_eq}}"><div class="row">{{/if_eq}}
-            <div class="card">
-                <a href="detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
-                <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{description1}}</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last Update: {{lastupdate}}</small>
-                </div>
-            </div>
-            {{#if_eq (math @key "%" 5) 4}}</div>
-            </div>{{/if_eq}}
-            {{#if_eq (math @key "+" 1) ../courses.length}}</div>
-            </div>{{/if_eq}}
-            {{/each}}
-            </div>
-        </div>
-
+        
         <div class="row" style="margin: 5vh 7% 0 7%;">
         <div class="col" style="padding: 0">
             <h2 id="gioithieu" style="border-bottom: 1px solid #444444;padding-bottom: 10px">

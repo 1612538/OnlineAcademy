@@ -8,7 +8,6 @@ const passport = require('../utils/passport');
 const smallcat = require('../models/Small_Categories');
 const cat = require('../models/Categories');
 const bcrypt = require('../utils/bcrypt');
-const courses = require('../models/Courses');
 
 router.get('/', async(req, res) => {
     const cats = await cat.all();
@@ -23,15 +22,11 @@ router.get('/', async(req, res) => {
             type = 2;
         else type = 1;
     }
-    const crs = await courses.all();
-    const cr = await courses.getByCatID(6);
     res.render('home', {
         title: 'Online Academy',
         cats: cats,
         smallcats: smallcats,
         type: type,
-        courses: crs,
-        course: cr,
         username: username,
         layout: 'main'
     });

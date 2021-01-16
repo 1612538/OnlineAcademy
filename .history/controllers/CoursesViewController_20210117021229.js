@@ -94,7 +94,6 @@ router.get('/detail/courseid=:id', async(req, res) => {
         type: type,
         username: username,
         course: course,
-        teacher: instructor,
         layout: 'main'
     });
 });
