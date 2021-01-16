@@ -50,7 +50,7 @@
         </div>
         <div id="multi-item-example" class="card-deck-row carousel slide carousel-multi-item"  data-interval="false">
             <div class="carousel-inner" role="listbox">
-            {{#each courses1}}
+            {{#each courses}}
             {{#if_eq (math @key "%" 5) 0}}<div class="carousel-item {{#if_eq @key 0}}active{{/if_eq}}"><div class="row">{{/if_eq}}
             <div class="card">
                 <a href="detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
@@ -63,9 +63,9 @@
                 </div>
             </div>
             {{#if_eq (math @key "%" 5) 4}}</div>
-            </div>{{else}}
-            {{#if_eq (math @key "+" 1) ../courses1.length}}</div>
-            </div>{{/if_eq}}{{/if_eq}}
+            </div>{{/if_eq}}
+            {{#if_eq (math @key "+" 1) ../courses.length}}</div>
+            </div>{{/if_eq}}
             {{/each}}
             </div>
         </div>
@@ -85,7 +85,7 @@
         </div>
         <div id="multi-item-example2" class="card-deck-row carousel slide carousel-multi-item"  data-interval="false">
             <div class="carousel-inner" role="listbox">
-            {{#each courses2}}
+            {{#each courses}}
             {{#if_eq (math @key "%" 5) 0}}<div class="carousel-item {{#if_eq @key 0}}active{{/if_eq}}"><div class="row">{{/if_eq}}
             <div class="card">
                 <a href="detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
@@ -98,9 +98,9 @@
                 </div>
             </div>
             {{#if_eq (math @key "%" 5) 4}}</div>
-            </div>{{else}}
-            {{#if_eq (math @key "+" 1) ../courses2.length}}</div>
-            </div>{{/if_eq}}{{/if_eq}}
+            </div>{{/if_eq}}
+            {{#if_eq (math @key "+" 1) ../courses.length}}</div>
+            </div>{{/if_eq}}
             {{/each}}
             </div>
         </div>
@@ -111,9 +111,6 @@
             Top popular Categories 
         </h2>
         </div>
-        </div>
-        <div class="col-4">
-            <ul></ul>
         </div>
     </div>
     {{>main/footer}}

@@ -98,9 +98,9 @@
                 </div>
             </div>
             {{#if_eq (math @key "%" 5) 4}}</div>
-            </div>{{else}}
+            </div>{{/if_eq}}
             {{#if_eq (math @key "+" 1) ../courses2.length}}</div>
-            </div>{{/if_eq}}{{/if_eq}}
+            </div>{{/if_eq}}
             {{/each}}
             </div>
         </div>
@@ -111,9 +111,6 @@
             Top popular Categories 
         </h2>
         </div>
-        </div>
-        <div class="col-4">
-            <ul></ul>
         </div>
     </div>
     {{>main/footer}}

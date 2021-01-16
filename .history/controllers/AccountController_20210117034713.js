@@ -24,15 +24,14 @@ router.get('/', async(req, res) => {
         else type = 1;
     }
     const crs = await courses.allByView();
-    const crs2 = await courses.allByDate();
-    const cr = await courses.allBySubscribe();
+    const cr = await courses.getByCatID(6);
     res.render('home', {
         title: 'Online Academy',
         cats: cats,
         smallcats: smallcats,
         type: type,
         courses1: crs,
-        courses2: crs2,
+        courses2: crs2
         course: cr,
         username: username,
         layout: 'main'

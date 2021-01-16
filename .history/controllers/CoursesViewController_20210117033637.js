@@ -56,9 +56,7 @@ router.get('/smallcatID=:scatid', async(req, res) => {
             type = 2;
         else type = 1;
     }
-    let currentCat = await smallcat.getById(req.params.scatid);
-    currentCat.count = currentCat.count + 1;
-    const rs = await smallcat.updateByEntity(currentCat);
+    const currentCat = await smallcat.getById(req.params.scatid);
     let course = await Courses.getByCatID(req.params.scatid);
     res.render('coursesViewByCat', {
         title: 'Online Academy - ' + currentCat.name,
@@ -88,6 +86,7 @@ router.get('/detail/courseid=:id', async(req, res) => {
     let course = await Courses.getById(req.params.id);
     const category = await smallcat.getById(course.idsmall_category);
     const smallcategory = category.name;
+    console.log(category.name);
     const instructor = await Teachers.getById(course.teacher);
     course.views = course.views + 1;
     const rs = await Courses.updateByEntity(course);

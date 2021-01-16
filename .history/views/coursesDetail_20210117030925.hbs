@@ -18,7 +18,7 @@
 </p> <!-- price-detail-wrap .// -->
 <dl class="param param-feature">
   <dt>Category</dt>
-  <dd style="margin-top: 5px; margin-left: 10px"><a type="button" class="btn btn-primary" href="/smallcatID={{course.idsmall_category}}">{{smallcategory}}</a></dd>
+  <dd style="margin-top: 5px; margin-left: 10px"><a type="button" class="btn btn-primary" href="/smallcatID={{course.idsmall_category}}">{{course.smallcategory}}</a></dd>
 </dl>
 <dl class="item-property">
   <dt>Summary</dt>
@@ -62,8 +62,8 @@
 		<dt>Feedbacks</dt>
 	</div> <!-- row.// -->
 	<hr>
-	<form method="POST" action="/user/addFavorite/idcourses={{course.idcourses}}"><a href="#" type="submit" class="btn btn-lg btn-primary text-uppercase"> Subscribe </a></form>
-	<form method="POST" action="/user/addEnrolled/idcourses={{course.idcourses}}"><a href="#" type="submit" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-heart"></i> Add to favorites </a></form>
+	<form method="POST" action="/user/addFavorite/idcourses={{course.idcourses}}"><a href="#" class="btn btn-lg btn-primary text-uppercase"> Subscribe </a></form>
+	<form method="POST" action="/user/addEnrolled/idcourses={{course.idcourses}}"><a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-heart"></i> Add to favorites </a></form>
 </article> <!-- card-body.// -->
 		</div> <!-- col.// -->
 	</div> <!-- row.// -->

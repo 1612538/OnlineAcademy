@@ -23,8 +23,7 @@ router.get('/:id', async(req, res) => {
 router.post('/:id/addSCategory/', async(req, res) => {
     const cat = {
         name: req.body.catNameNew,
-        idcategory: parseInt(req.params.id),
-        count: 0
+        idcategory: parseInt(req.params.id)
     }
     const catID = await SmallCat.add(cat);
     res.redirect('/management/categories/' + req.params.id);

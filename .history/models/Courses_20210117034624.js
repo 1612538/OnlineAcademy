@@ -31,22 +31,7 @@ module.exports = {
         return null;
     },
     allByDate: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY STR_TO_DATE(lastupdate,'%T %d/%m/%Y') DESC limit 10;`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        });
-        if (rows.length > 0)
-            return rows;
-        return null;
-    },
-
-    allBySubscribe: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY subscribes DESC limit 3`;
+        const sql = `SELECT * FROM ${tbName} ORDER BY DATE(lastupdate) DESC limit 10`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {

@@ -1,5 +1,5 @@
 const db = require('../utils/db');
-const tbName = "courses";
+const tbName = "favoritecourses";
 
 module.exports = {
     all: async() => {
@@ -16,52 +16,8 @@ module.exports = {
             return rows;
         return null;
     },
-    allByView: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY views DESC limit 10`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        });
-        if (rows.length > 0)
-            return rows;
-        return null;
-    },
-    allByDate: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY STR_TO_DATE(lastupdate,'%T %d/%m/%Y') DESC limit 10;`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        });
-        if (rows.length > 0)
-            return rows;
-        return null;
-    },
-
-    allBySubscribe: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY subscribes DESC limit 3`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        });
-        if (rows.length > 0)
-            return rows;
-        return null;
-    },
-
-    getById: async id => {
-        const sql = `SELECT * FROM ${tbName} WHERE idcourses = '${id}'`;
+    getByUserId: async id => {
+        const sql = `SELECT * FROM ${tbName} WHERE iduser = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
@@ -74,8 +30,8 @@ module.exports = {
             return rows[0];
         return null;
     },
-    getByName: async name => {
-        const sql = `SELECT * FROM ${tbName} WHERE name = '${name}'`;
+    getByCourseID: async name => {
+        const sql = `SELECT * FROM ${tbName} WHERE idcourses = '${name}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
@@ -86,20 +42,6 @@ module.exports = {
         });
         if (rows.length > 0)
             return rows[0];
-        else return null;
-    },
-    getByCatID: async CatID => {
-        const sql = `SELECT * FROM ${tbName} WHERE idsmall_category = '${CatID}'`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        })
-        if (rows.length > 0)
-            return rows;
         else return null;
     },
 
@@ -115,7 +57,7 @@ module.exports = {
         return rows;
     },
 
-    deleteById: async id => {
+    deleteById: async(id, id) => {
         const sql = `DELETE FROM ${tbName} WHERE idcourses = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {

@@ -59,7 +59,7 @@ app.use('/', loggedIn, require('./controllers/Account2Controller'));
 
 app.use('/teacher', loggedInAsTeacher, require('./controllers/CoursesTeacherController'));
 
-app.use('/user', loggedInAsUser, require('./controllers/CoursesUserController'));
+app.use('/user', loggedInAsUser, require('../'))
 
 app.use('/management', loggedInAsAdmin, require('./controllers/ManagementController'));
 

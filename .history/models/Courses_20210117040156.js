@@ -31,7 +31,7 @@ module.exports = {
         return null;
     },
     allByDate: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY STR_TO_DATE(lastupdate,'%T %d/%m/%Y') DESC limit 10;`;
+        const sql = `SELECT * FROM ${tbName} ORDER BY DATE_FORMAT(lastupdate, '%e %b, %Y') DESC limit 10`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
