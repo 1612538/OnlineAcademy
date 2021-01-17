@@ -15,6 +15,16 @@ function addClick(url) {
     $(`#frmHidden`).submit();
 }
 
+function unlockClick(id, url) {
+    $(`#frmHidden${id}`).attr('action', `/management/${url}`);
+    $(`#frmHidden${id}`).submit();
+}
+
+function lockClick(id, url) {
+    $(`#frmHidden${id}`).attr('action', `/management/${url}`);
+    $(`#frmHidden${id}`).submit();
+}
+
 function editClick(id) {
     document.getElementById(`edit${id}`).style.display = 'none';
     document.getElementById(`del${id}`).style.display = 'none';

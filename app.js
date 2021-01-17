@@ -102,6 +102,7 @@ function loggedInAsUser(req, res, next) {
 
 function loggedIn(req, res, next) {
     if (req.isAuthenticated()) {
+
         next();
     } else {
         res.redirect('/login');

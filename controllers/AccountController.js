@@ -95,7 +95,8 @@ router.get('/signup', (req, res) => {
         password: await bcrypt.hashPassword(req.body.password),
         email: req.body.email,
         firstname: req.body.firstname,
-        lastname: req.body.lastname
+        lastname: req.body.lastname,
+        isBlocked: 0,
     }
     const iduser = await users.add(user);
     req.login(user, function(err) {

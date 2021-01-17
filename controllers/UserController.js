@@ -26,5 +26,25 @@ router.post('/deleteUser/:id', async(req, res) => {
     res.redirect('/management/users');
 })
 
+router.post('/lockUser/:id', async(req, res) => {
+    let id = parseInt(req.params.id);
+    let user = await User.getById(id);
+    if (user.isBlocked === 0) {
+        user.isBlocked = 1;
+        let rs = await User.updateByEntity(user);
+    }
+    res.redirect('/management/users');
+});
+
+router.post('/unlockUser/:id', async(req, res) => {
+    let id = parseInt(req.params.id);
+    let user = await User.getById(id);
+    if (user.isBlocked === 1) {
+        user.isBlocked = 0;
+        let rs = await User.updateByEntity(user);
+    }
+
+    res.redirect('/management/users');
+})
 
 module.exports = router;

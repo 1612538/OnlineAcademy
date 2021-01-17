@@ -39,10 +39,14 @@ passport.use(new localStrategy(
         const admin = await admins.getByUsername(username);
         if (user) //kiểm tra giá trị trường có name là username
             if (await bcrypt.checkPassword(password, user.password)) { // kiểm tra giá trị trường có name là password
+                if (user.isBlocked === 1)
+                    return done(null, false);
                 return done(null, user);
             }
         if (teacher) { //kiểm tra giá trị trường có name là teacher
             if (await bcrypt.checkPassword(password, teacher.password)) { // kiểm tra giá trị trường có name là password
+                if (teacher.isBlocked === 1)
+                    return done(null, false);
                 return done(null, teacher);
             }
         }

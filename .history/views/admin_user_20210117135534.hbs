@@ -1,0 +1,157 @@
+
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        {{>admin/navbar}}
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        {{> admin/sidemenu}}
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    {{>admin/pageheader}}
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- basic table  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Basic Table</h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered first">
+                                        <colgroup>
+                                            <col span="1" style="width: 10%;">
+                                            <col span="1" style="width: 15%;">
+                                            <col span="1" style="width: 20%;">
+                                            <col span="1" style="width: 10%;">
+                                            <col span="1" style="width: 10%;">
+                                            <col span="1" style="width: 25%;">
+                                            <col span="1" style="width: 10%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Firstname</th>
+                                                <th>Lastname</th>
+                                                <th>Email</th>
+                                                <th>Option</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each users}}
+                                            <tr>
+                                                <form id="frmHidden{{iduser}}" method="post">
+                                                <td id="{{iduser}}">{{iduser}}</td>
+                                                <td id="form{{iduser}}" style="display: none"><input type="text" class="form-control" name="userID{{iduser}}" size="6" value="{{iduser}}"></td>
+
+                                                <td id="name{{iduser}}">{{username}}</td>
+                                                <td id="formName{{iduser}}" style="display: none"><input type="text" class="form-control" name="userName{{iduser}}"  value="{{username}}"></td>
+
+                                                <td id="password{{iduser}}"><p style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 160px">{{password}}</p></td>
+                                                <td id="formPassword{{iduser}}" style="display: none"><input type="text" class="form-control" name="userPassword{{iduser}}"  value="{{password}}"></td>
+
+                                                <td id="firstname{{iduser}}">{{firstname}}</td>
+                                                <td id="formFirst{{iduser}}" style="display: none"><input type="text" class="form-control" name="userFirst{{iduser}}"  value="{{firstname}}"></td>
+
+                                                <td id="lastname{{iduser}}">{{lastname}}</td>
+                                                <td id="formLast{{iduser}}" style="display: none"><input type="text" class="form-control" name="userLast{{iduser}}"  value="{{lastname}}"></td>
+
+                                                <td id="email{{iduser}}">{{email}}</td>
+                                                <td id="formEmail{{iduser}}" style="display: none"><input type="text" class="form-control" name="userEmail{{iduser}}"  value="{{email}}"></td>
+                                                
+                                                <td style="text-align: center;">
+                                                    <ul class="list-inline m-0">
+
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" id="del{{iduser}}" onclick="delClick({{iduser}}, 'users/deleteUser')"><i class="fa fa-trash"></i></button>
+                                                </li>
+                                                {{#if isBlocked}}
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" id="del{{iduser}}" onclick="delClick({{iduser}}, 'users/deleteUser')"><i class="fa fa-trash"></i></button>
+                                                </li>
+                                                
+
+                                                </ul>
+                                                </td>
+                                                </form>
+                                            </tr>
+                                            {{/each}}
+
+                                            <form id="frmHidden" method="post">
+                                            <tr id = "newrow" style="display: none">
+                                                <td><input type="text" class="form-control" id="userID" name="userNew" value="-1" readonly></td>
+                                                <td><input type="text" class="form-control" id="userName" name="userNameNew" value=""></td>
+                                                <td><input type="text" class="form-control" id="userPassword" name="userPasswordNew" value=""></td>
+                                                <td><input type="text" class="form-control" id="userFirst" name="userFirstNew" value=""></td>
+                                                <td><input type="text" class="form-control" id="userLast" name="userLastNew" value=""></td>
+                                                <td><input type="text" class="form-control" id="userEmail" name="userEmailNew" value=""></td>
+                                                <td style="text-align: center;">
+                                                    <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-success btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Add" id="add" onclick="addClick('users/addUser')"><i class="fa fa-check"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Remove" id="remove" onclick="removeClick(-1)"><i class="fa fa-times"></i></button>
+                                                </li>
+                                                </ul>
+                                                </td>
+                                            </tr>
+                                            </form>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>Firstname</th>
+                                                <th>Lastname</th>
+                                                <th>Email</th>
+                                                <th>Option</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    
+                                </div>
+                                <div class="row" style="display: none">
+                                <div class="col-sm-10"></div>
+                                <div class="col-sm-2"  style="margin-top: 25px">
+                                    <button type="button" class="btn btn-info add-new" onclick="document.getElementById('newrow').style.display = 'table-row'"><i class="fa fa-plus"></i> Add New</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end basic table  -->
+                    <!-- ============================================================== -->
+                </div>
+                
+            </div>
+        {{>admin/footer}}
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <script src="/js/addbutton.js"></script>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+

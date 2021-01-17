@@ -30,6 +30,7 @@ router.post('/addTeacher/', async(req, res) => {
         lastname: req.body.teacherLastNew,
         workplace: req.body.teacherWorkNew,
         email: req.body.teacherEmailNew,
+        isBlocked: 0,
     }
     const user = await User.getByUsername(teacher.username);
     const admin = await Admin.getByUsername(teacher.username);
@@ -65,6 +66,27 @@ router.post('/updateTeacher/:id', async(req, res) => {
     }
     const result = Teacher.updateByEntity(teacher);
     return res.redirect('/management/teachers');
+});
+
+router.post('/lockTeacher/:id', async(req, res) => {
+    let id = parseInt(req.params.id);
+    let teacher = await Teacher.getById(id);
+    if (teacher.isBlocked === 0) {
+        teacher.isBlocked = 1;
+        let rs = await Teacher.updateByEntity(teacher);
+    }
+    res.redirect('/management/teachers');
+});
+
+router.post('/unlockTeacher/:id', async(req, res) => {
+    let id = parseInt(req.params.id);
+    let teacher = await Teacher.getById(id);
+    if (teacher.isBlocked === 1) {
+        teacher.isBlocked = 0;
+        let rs = await Teacher.updateByEntity(teacher);
+    }
+
+    res.redirect('/management/teachers');
 })
 
 

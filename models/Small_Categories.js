@@ -53,7 +53,7 @@ module.exports = {
     },
 
     getByCount: async() => {
-        const sql = `SELECT * FROM ${tbName} ORDER BY count DESC LIMIT 3`;
+        const sql = `SELECT * FROM ${tbName} ORDER BY count DESC LIMIT 5`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {

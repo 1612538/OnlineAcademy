@@ -83,6 +83,15 @@
                                                 <li class="list-inline-item">
                                                     <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" id="del{{iduser}}" onclick="delClick({{iduser}}, 'users/deleteUser')"><i class="fa fa-trash"></i></button>
                                                 </li>
+                                                {{#if_eq isBlocked 1}}
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Unlock" id="unlock{{iduser}}" onclick="unlockClick({{iduser}},'users/unlockUser/{{iduser}}')"><i class="fa fa-lock"></i></button>
+                                                </li>
+                                                {{else}}
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-light btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Lock" id="lock{{iduser}}" onclick="lockClick({{iduser}},'users/lockUser/{{iduser}}')"><i class="fa fa-lock-open"></i></button>
+                                                </li>
+                                                {{/if_eq}}
 
                                                 </ul>
                                                 </td>
