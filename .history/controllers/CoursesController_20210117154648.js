@@ -26,7 +26,7 @@ router.get('/SmallCatID=:id', async(req, res) => {
         const cats = await Categories.all();
         const smallcats = await Small_Categories.all();
         let id = parseInt(req.params.id);
-        const smallcat = await Small_Categories.getById(id);
+        const smallcat = await Small_Categories.getByIdByAdmin(id);
         const allcourses = await courses.getByCatIDByAdmin(id);
         for (let course of allcourses) {
             const teacher = await Teachers.getById(course.teacher);

@@ -69,21 +69,6 @@
                                                 <td>{{lastupdate}}</td>
                                                 <td>{{isCompleted}}</td>
                                                 <td>{{subscribes}}</td>
-                                                <td style="text-align: center;">
-                                                    <form id="frmHidden{{idcourses}}" method="post">
-                                                    <ul class="list-inline m-0">
-                                                    {{#if_eq isBlocked 1}}
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Unlock" id="unlock{{idcourses}}" onclick="unlockClick({{idcourses}},'courses/unlockCourse/{{idcourses}}')"><i class="fa fa-lock"></i></button>
-                                                </li>
-                                                {{else}}
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-light border btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Lock" id="lock{{idcourses}}" onclick="lockClick({{idcourses}},'courses/lockCourse/{{idcourses}}')"><i class="fa fa-lock-open"></i></button>
-                                                </li>
-                                                {{/if_eq}}
-                                                </ul>
-                                                </form>
-                                                </td>
                                             {{/each}}
                                             </tr>
                                         </tbody>
@@ -119,7 +104,7 @@
         <!-- end wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <script src="/js/addbutton.js"></script>
+
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
 

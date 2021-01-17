@@ -107,7 +107,7 @@ module.exports = {
 
     getByTextSearch: async str => {
         const sql1 = `ALTER TABLE ${tbName} ADD FULLTEXT(name);`
-        const sql2 = `SELECT * FROM ${tbName} WHERE MATCH(name) AGAINST('${str}')AND isBlocked=0;`
+        const sql2 = `SELECT * FROM ${tbName} WHERE MATCH(name) AGAINST('${str}  AND isBlocked=0');`
         const sql3 = ` ALTER TABLE ${tbName} DROP INDEX name;`
         const sql = sql1 + sql2 + sql3;
         const rows = await new Promise((resolve, reject) => {

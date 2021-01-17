@@ -16,8 +16,7 @@
                     {{#each courses}}
                     {{#if_eq (math @key "%" 4) 0}}<div class="row" style="justify-content: center; align-items: center">{{/if_eq}}
                     <div class="m-3" style="width: 22%">
-                    {{#if ../isFavorite}}<form method="POST" action="/user/deleteFavorite/idcourses={{idcourses}}">
-                        <button type="submit" class="btn btn-danger float-right"><i class="fa fa-minus"></i></button></form>{{/if}}
+
                         <div class="card m-0" style="width: 100%">
                 <a href="/detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
                 <div class="card-body">
@@ -28,7 +27,7 @@
                     <small class="text-muted">Last Update: {{lastupdate}}</small>
                 </div>
             </div>
-            </div>
+            {{#if ../isFavorite}}</div>{{/if}}
             
                     {{#if_eq (math @key "%" 4) 3}}</div>{{else}}
                     {{#if_eq (math @key "+" 1) ../courses.length}}</div>{{/if_eq}}{{/if_eq}}

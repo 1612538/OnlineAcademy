@@ -44,7 +44,7 @@ router.get('/SmallCatID=:id', async(req, res) => {
 
 router.post('/lockcourse/:id', async(req, res) => {
     let id = parseInt(req.params.id);
-    let course = await courses.getByIdByAdmin(id);
+    let course = await courses.getById(id);
     if (course.isBlocked === 0) {
         course.isBlocked = 1;
         let rs = await courses.updateByEntity(course);
@@ -54,7 +54,7 @@ router.post('/lockcourse/:id', async(req, res) => {
 
 router.post('/unlockcourse/:id', async(req, res) => {
     let id = parseInt(req.params.id);
-    let course = await courses.getByIdByAdmin(id);
+    let course = await courses.getById(id);
     if (course.isBlocked === 1) {
         course.isBlocked = 0;
         let rs = await courses.updateByEntity(course);

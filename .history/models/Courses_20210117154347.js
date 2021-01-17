@@ -46,7 +46,7 @@ module.exports = {
     },
 
     allBySubscribe: async() => {
-        const sql = `SELECT * FROM ${tbName} WHERE isBlocked=0 ORDER BY subscribes DESC limit 3`;
+        const sql = `SELECT * FROM ${tbName} ORDER BY subscribes DESC limit 3`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
@@ -61,21 +61,6 @@ module.exports = {
     },
 
     getById: async id => {
-        const sql = `SELECT * FROM ${tbName} WHERE idcourses = '${id}' AND isBlocked=0`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        });
-        if (rows.length > 0)
-            return rows[0];
-        return null;
-    },
-
-    getByIdByAdmin: async id => {
         const sql = `SELECT * FROM ${tbName} WHERE idcourses = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
@@ -89,9 +74,8 @@ module.exports = {
             return rows[0];
         return null;
     },
-
     getByIdTeacher: async id => {
-        const sql = `SELECT * FROM ${tbName} WHERE teacher = '${id}' AND isBlocked=0`;
+        const sql = `SELECT * FROM ${tbName} WHERE teacher = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
@@ -107,7 +91,7 @@ module.exports = {
 
     getByTextSearch: async str => {
         const sql1 = `ALTER TABLE ${tbName} ADD FULLTEXT(name);`
-        const sql2 = `SELECT * FROM ${tbName} WHERE MATCH(name) AGAINST('${str}')AND isBlocked=0;`
+        const sql2 = `SELECT * FROM ${tbName} WHERE MATCH(name) AGAINST('${str}');`
         const sql3 = ` ALTER TABLE ${tbName} DROP INDEX name;`
         const sql = sql1 + sql2 + sql3;
         const rows = await new Promise((resolve, reject) => {
@@ -124,7 +108,7 @@ module.exports = {
         return null;
     },
     getByName: async name => {
-        const sql = `SELECT * FROM ${tbName} WHERE name = '${name}' AND isBlocked=0`;
+        const sql = `SELECT * FROM ${tbName} WHERE name = '${name}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
@@ -138,21 +122,6 @@ module.exports = {
         else return null;
     },
     getByCatID: async CatID => {
-        const sql = `SELECT * FROM ${tbName} WHERE idsmall_category = '${CatID}' AND isBlocked=0`;
-        const rows = await new Promise((resolve, reject) => {
-            db.query(sql, (err, result, field) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
-            })
-        })
-        if (rows.length > 0)
-            return rows;
-        else return null;
-    },
-
-    getByCatIDByAdmin: async CatID => {
         const sql = `SELECT * FROM ${tbName} WHERE idsmall_category = '${CatID}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
