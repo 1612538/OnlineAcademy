@@ -35,7 +35,6 @@ router.get('/FavoriteCourses', async(req, res) => {
         type: type,
         courses: rows,
         username: req.user.username,
-        isFavorite: true,
         category: 'Favorite Courses',
         layout: 'main',
     });
@@ -93,7 +92,7 @@ router.post('/deleteFavorite/idcourses=:id', async(req, res) => {
     if (req.user.type === 1) {
         let rs = await FavoriteCourses.deleteById(req.user.iduser, req.params.id);
     }
-    res.redirect('/user/FavoriteCourses');
+    res.redirect('/FavoriteCourses');
 });
 
 module.exports = router;

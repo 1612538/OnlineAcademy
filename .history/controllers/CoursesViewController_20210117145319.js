@@ -92,6 +92,7 @@ router.get('/detail/courseid=:id', async(req, res) => {
             type = 1;
             isEnroll = await EnrolledCourses.getByTwoID(req.user.iduser, req.params.id);
             isFavor = await FavoriteCourses.getByTwoID(req.user.iduser, req.params.id);
+            console.log(isFavor);
         }
     }
     let course = await Courses.getById(req.params.id);

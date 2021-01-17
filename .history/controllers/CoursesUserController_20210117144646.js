@@ -25,9 +25,8 @@ router.get('/FavoriteCourses', async(req, res) => {
     }
     const favorCourses = await FavoriteCourses.getByUserId(req.user.iduser);
     let rows = [];
-    if (favorCourses != null)
-        for (let favorCourse of favorCourses)
-            rows = rows.concat(await Courses.getById(favorCourse.idcourses));
+    for (let favorCourse of favorCourses)
+        rows = rows.concat(await Courses.getById(favorCourse.idcourses));
     res.render('coursesViewByCat', {
         title: 'Online Academy - Favorite Course',
         cats: cats,
@@ -35,8 +34,7 @@ router.get('/FavoriteCourses', async(req, res) => {
         type: type,
         courses: rows,
         username: req.user.username,
-        isFavorite: true,
-        category: 'Favorite Courses',
+        category: 'Favorite Course',
         layout: 'main',
     });
 });
@@ -53,9 +51,8 @@ router.get('/EnrolledCourses', async(req, res) => {
     }
     const enrollCourses = await EnrolledCourses.getByUserId(req.user.iduser);
     let rows = [];
-    if (enrollCourses != null)
-        for (let enrollCourse of enrollCourses)
-            rows = rows.concat(await Courses.getById(enrollCourse.idcourses));
+    for (let enrollCourse of enrollCourses)
+        rows = rows.concat(await Courses.getById(enrollCourse.idcourses));
     res.render('coursesViewByCat', {
         title: 'Online Academy - Favorite Course',
         cats: cats,
@@ -63,7 +60,7 @@ router.get('/EnrolledCourses', async(req, res) => {
         type: type,
         courses: rows,
         username: req.user.username,
-        category: 'Enrolled Courses',
+        category: 'Enrolled Course',
         layout: 'main',
     });
 });
@@ -87,13 +84,6 @@ router.post('/addEnrolled/idcourses=:id', async(req, res) => {
     const rows = await Courses.updateByEntity(course);
     const rs = await EnrolledCourses.add(newEnrolled);
     res.redirect('/detail/courseid=' + req.params.id);
-});
-
-router.post('/deleteFavorite/idcourses=:id', async(req, res) => {
-    if (req.user.type === 1) {
-        let rs = await FavoriteCourses.deleteById(req.user.iduser, req.params.id);
-    }
-    res.redirect('/user/FavoriteCourses');
 });
 
 module.exports = router;

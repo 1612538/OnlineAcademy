@@ -110,7 +110,6 @@ router.get('/detail/courseid=:id', async(req, res) => {
         course: course,
         teacher: instructor,
         isEnroll: isEnroll,
-        isFavor: isFavor,
         layout: 'main'
     });
 });

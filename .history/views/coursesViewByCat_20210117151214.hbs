@@ -15,10 +15,9 @@
                     <h5 class="mb-3">Courses related to "{{category}}"</h5>
                     {{#each courses}}
                     {{#if_eq (math @key "%" 4) 0}}<div class="row" style="justify-content: center; align-items: center">{{/if_eq}}
-                    <div class="m-2" style="width: 22%">
-                    {{#if ../isFavorite}}<form method="POST" action="/user/deleteFavorite/idcourses={{idcourses}}">
-                        <button type="submit" class="btn btn-danger float-right"><i class="fa fa-minus"></i></button></form>{{/if}}
-                        <div class="card m-0" style="width: 100%">
+                    {{#if ../isFavorite}}<div>
+                        <div class="btn btn-danger"><i class="fa fa-minus"></i></div>{{/if}}
+                        <div class="card " style="width: 22%">
                 <a href="/detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
                 <div class="card-body">
                     <h5 class="card-title">{{name}}</h5>
