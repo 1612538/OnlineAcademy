@@ -55,7 +55,7 @@ router.get('/CreateCourse', async(req, res) => {
     return res.redirect('/teacher/CreateCourse?createSuccess=true');
 })
 
-router.get('/MyCourses', async(req, res) => {
+router.get('/MyCourse', async(req, res) => {
     const cats = await cat.all();
     let smallcats = await smallcat.all();
     if (req.isAuthenticated()) {
@@ -72,9 +72,7 @@ router.get('/MyCourses', async(req, res) => {
         smallcats: smallcats,
         type: type,
         username: req.user.username,
-        courses: mycourses,
-        category: "My Courses",
-        layout: 'main'
+        courses: layout: 'main'
     });
 })
 

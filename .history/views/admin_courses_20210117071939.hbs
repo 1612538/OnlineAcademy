@@ -3,14 +3,6 @@
     <!-- main wrapper -->
     <!-- ============================================================== -->
     <div class="dashboard-main-wrapper">
-    <style>
-        td{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-        }
-    </style>
         {{>admin/navbar}}
         <!-- ============================================================== -->
         <!-- ============================================================== -->
@@ -51,6 +43,8 @@
                                                 <th>Rate</th>
                                                 <th>Rate Votes</th>
                                                 <th>Price</th>
+                                                <th>Summary</th>
+                                                <th>Description</th>
                                                 <th>Last Update</th>
                                                 <th>Complete</th>
                                                 <th>Views</th>
@@ -60,17 +54,12 @@
                                         <tbody>
                                             {{#each courses}}
                                             <tr>
-                                                <td>{{idcourses}}</td>
-                                                <td>{{name}}</td>
-                                                <td>{{teacherName}}</td>
-                                                <td>{{rate}}</td>
-                                                <td>{{ratevotes}}</td>
-                                                <td>${{price}}</td>
-                                                <td>{{lastupdate}}</td>
-                                                <td>{{isCompleted}}</td>
-                                                <td>{{views}}</td>
-                                                <td>{{subscribes}}</td>
-                                            {{/each}}
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>$320,800</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -81,6 +70,8 @@
                                                 <th>Rate</th>
                                                 <th>Rate Votes</th>
                                                 <th>Price</th>
+                                                <th>Summary</th>
+                                                <th>Description</th>
                                                 <th>Last Update</th>
                                                 <th>Complete</th>
                                                 <th>Views</th>

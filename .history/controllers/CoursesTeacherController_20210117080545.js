@@ -55,39 +55,37 @@ router.get('/CreateCourse', async(req, res) => {
     return res.redirect('/teacher/CreateCourse?createSuccess=true');
 })
 
-router.get('/MyCourses', async(req, res) => {
-    const cats = await cat.all();
-    let smallcats = await smallcat.all();
-    if (req.isAuthenticated()) {
-        if (req.user.type === 3)
-            type = 3;
-        else if (req.user.type === 2)
-            type = 2;
-        else type = 1;
-    }
-    const mycourses = await Courses.getByIdTeacher(req.user.idteacher);
-    res.render('coursesViewByCat', {
-        title: 'Online Academy - Create Course',
-        cats: cats,
-        smallcats: smallcats,
-        type: type,
-        username: req.user.username,
-        courses: mycourses,
-        category: "My Courses",
-        layout: 'main'
-    });
-})
+router.get('/MyCourse', async(req, res) => {
+            const cats = await cat.all();
+            let smallcats = await smallcat.all();
+            if (req.isAuthenticated()) {
+                if (req.user.type === 3)
+                    type = 3;
+                else if (req.user.type === 2)
+                    type = 2;
+                else type = 1;
+            }
 
-function currentDate() {
-    var date = new Date();
-    var dateStr =
-        ("00" + date.getHours()).slice(-2) + ":" +
-        ("00" + date.getMinutes()).slice(-2) + ":" +
-        ("00" + date.getSeconds()).slice(-2) + " " +
-        ("00" + date.getDate()).slice(-2) + "/" +
-        ("00" + (date.getMonth() + 1)).slice(-2) + "/" +
-        date.getFullYear();
-    return dateStr;
-}
+            res.render('coursesCreate', {
+                title: 'Online Academy - Create Course',
+                cats: cats,
+                smallcats: smallcats,
+                type: type,
+                username: req.user.username,
+                createSuccess: req.query.createSuccess,
+                layout: 'main'
+            });
 
-module.exports = router;
+            function currentDate() {
+                var date = new Date();
+                var dateStr =
+                    ("00" + date.getHours()).slice(-2) + ":" +
+                    ("00" + date.getMinutes()).slice(-2) + ":" +
+                    ("00" + date.getSeconds()).slice(-2) + " " +
+                    ("00" + date.getDate()).slice(-2) + "/" +
+                    ("00" + (date.getMonth() + 1)).slice(-2) + "/" +
+                    date.getFullYear();
+                return dateStr;
+            }
+
+            module.exports = router;

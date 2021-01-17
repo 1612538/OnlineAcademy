@@ -75,7 +75,7 @@ module.exports = {
         return null;
     },
     getByIdTeacher: async id => {
-        const sql = `SELECT * FROM ${tbName} WHERE teacher = '${id}'`;
+        const sql = `SELECT * FROM ${tbName} WHERE idcourses = '${id}'`;
         const rows = await new Promise((resolve, reject) => {
             db.query(sql, (err, result, field) => {
                 if (err) {
@@ -85,7 +85,7 @@ module.exports = {
             })
         });
         if (rows.length > 0)
-            return rows;
+            return rows[0];
         return null;
     },
 

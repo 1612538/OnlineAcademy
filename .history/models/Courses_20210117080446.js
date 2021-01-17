@@ -85,7 +85,7 @@ module.exports = {
             })
         });
         if (rows.length > 0)
-            return rows;
+            return rows[0];
         return null;
     },
 

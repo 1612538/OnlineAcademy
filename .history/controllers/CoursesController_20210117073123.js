@@ -23,14 +23,13 @@ router.get('/', async(req, res) => {
 
 router.get('/SmallCatID=:id', async(req, res) => {
     if (req.isAuthenticated() && req.user.type == 3) {
-        const cats = await Categories.all();
-        const smallcats = await Small_Categories.all();
+        const cats = await Cat.all();
+        const smallcats = await SmallCat.all();
         let id = parseInt(req.params.id);
-        const smallcat = await Small_Categories.getById(id);
+        const smallcat = Small_Categories.getById(id);
         const allcourses = await courses.getByCatID(id);
         for (let course of allcourses) {
-            const teacher = await Teachers.getById(course.teacher);
-            course.teacherName = teacher.firstname + " " + teacher.lastname;
+            course.teacherName = await Teachers.getById(course.idteacher);
         }
         res.render('admin_courses', {
             cats: cats,

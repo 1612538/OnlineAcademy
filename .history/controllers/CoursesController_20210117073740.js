@@ -30,7 +30,7 @@ router.get('/SmallCatID=:id', async(req, res) => {
         const allcourses = await courses.getByCatID(id);
         for (let course of allcourses) {
             const teacher = await Teachers.getById(course.teacher);
-            course.teacherName = teacher.firstname + " " + teacher.lastname;
+            course.teacherName = teacher.firstname + teacher.lastname;
         }
         res.render('admin_courses', {
             cats: cats,

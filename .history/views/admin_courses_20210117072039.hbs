@@ -3,14 +3,6 @@
     <!-- main wrapper -->
     <!-- ============================================================== -->
     <div class="dashboard-main-wrapper">
-    <style>
-        td{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-        }
-    </style>
         {{>admin/navbar}}
         <!-- ============================================================== -->
         <!-- ============================================================== -->
@@ -51,6 +43,8 @@
                                                 <th>Rate</th>
                                                 <th>Rate Votes</th>
                                                 <th>Price</th>
+                                                <th>Summary</th>
+                                                <th>Description</th>
                                                 <th>Last Update</th>
                                                 <th>Complete</th>
                                                 <th>Views</th>
@@ -65,12 +59,7 @@
                                                 <td>{{teacherName}}</td>
                                                 <td>{{rate}}</td>
                                                 <td>{{ratevotes}}</td>
-                                                <td>${{price}}</td>
-                                                <td>{{lastupdate}}</td>
-                                                <td>{{isCompleted}}</td>
-                                                <td>{{views}}</td>
-                                                <td>{{subscribes}}</td>
-                                            {{/each}}
+                                                <td>{{price}}</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -81,6 +70,8 @@
                                                 <th>Rate</th>
                                                 <th>Rate Votes</th>
                                                 <th>Price</th>
+                                                <th>Summary</th>
+                                                <th>Description</th>
                                                 <th>Last Update</th>
                                                 <th>Complete</th>
                                                 <th>Views</th>

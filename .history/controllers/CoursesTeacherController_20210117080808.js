@@ -73,7 +73,6 @@ router.get('/MyCourses', async(req, res) => {
         type: type,
         username: req.user.username,
         courses: mycourses,
-        category: "My Courses",
         layout: 'main'
     });
 })

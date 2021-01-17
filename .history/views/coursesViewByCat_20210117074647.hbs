@@ -19,7 +19,16 @@
                 <a href="/detail/courseid={{idcourses}}" class="stretched-link"><img class="card-img-top" src="{{img}}" alt="{{@key}}"></a>
                 <div class="card-body">
                     <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{description1}}</p>
+                    <p class="card-text"><div class="col-2">
+    <div class="star-rating">
+        <span class="fas fa-star" data-rating="1"></span>
+        <span class="fas fa-star" data-rating="2"></span>
+        <span class="fas fa-star" data-rating="3"></span>
+        <span class="fas fa-star" data-rating="4"></span>
+        <span class="fas fa-star" data-rating="5"></span>
+        <input type="hidden" id="rating" class="rating-value" value="{{rate}}">
+      </div>
+    </div></p>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Last Update: {{lastupdate}}</small>

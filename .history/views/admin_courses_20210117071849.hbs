@@ -1,0 +1,151 @@
+
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        {{>admin/navbar}}
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        {{> admin/sidemenu}}
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    {{>admin/pageheader}}
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- basic table  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Basic Table</h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered first">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Teacher</th>
+                                                <th>Rate</th>
+                                                <th>Rate Votes</th>
+                                                <th>Price</th>
+                                                <th>Summary</th>
+                                                <th>Description</th>
+                                                <th>Last Update</th>
+                                                <th>Complete</th>
+                                                <th>Views</th>
+                                                <th>Subscribe</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each courses}}
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>61</td>
+                                                <td>2011/04/25</td>
+                                                <td>$320,800</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Garrett Winters</td>
+                                                <td>Accountant</td>
+                                                <td>Tokyo</td>
+                                                <td>63</td>
+                                                <td>2011/07/25</td>
+                                                <td>$170,750</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ashton Cox</td>
+                                                <td>Junior Technical Author</td>
+                                                <td>San Francisco</td>
+                                                <td>66</td>
+                                                <td>2009/01/12</td>
+                                                <td>$86,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cedric Kelly</td>
+                                                <td>Senior Javascript Developer</td>
+                                                <td>Edinburgh</td>
+                                                <td>22</td>
+                                                <td>2012/03/29</td>
+                                                <td>$433,060</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ashton Cox</td>
+                                                <td>Junior Technical Author</td>
+                                                <td>San Francisco</td>
+                                                <td>66</td>
+                                                <td>2009/01/12</td>
+                                                <td>$86,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cedric Kelly</td>
+                                                <td>Senior Javascript Developer</td>
+                                                <td>Edinburgh</td>
+                                                <td>22</td>
+                                                <td>2012/03/29</td>
+                                                <td>$433,060</td>
+                                            </tr><tr>
+                                                <td>Ashton Cox</td>
+                                                <td>Junior Technical Author</td>
+                                                <td>San Francisco</td>
+                                                <td>66</td>
+                                                <td>2009/01/12</td>
+                                                <td>$86,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cedric Kelly</td>
+                                                <td>Senior Javascript Developer</td>
+                                                <td>Edinburgh</td>
+                                                <td>22</td>
+                                                <td>2012/03/29</td>
+                                                <td>$433,060</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                            </tr>
+                                            
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end basic table  -->
+                    <!-- ============================================================== -->
+                </div>
+                
+            </div>
+        {{>admin/footer}}
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+
