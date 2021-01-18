@@ -33,8 +33,7 @@ router.get('/CreateCourse', async(req, res) => {
     });
 }).post('/CreateCourse', upload.fields([
     { name: 'imageInput', maxCount: 1 },
-    { name: 'slideInput', maxCount: 1 },
-    { name: 'videoInput', maxCount: 1 }
+    { name: 'slideInput', maxCount: 1 }
 ]), async(req, res) => {
     const course = {
         name: req.body.nameInput,
@@ -51,7 +50,6 @@ router.get('/CreateCourse', async(req, res) => {
         slidepreview: '/tmp/my-uploads/' + req.files['slideInput'][0].filename,
         subscribes: 0,
         previewvideo: '/tmp/my-uploads/' + req.files['videoInput'][0].filename,
-        isBlocked: 0,
         views: 0,
     }
     const row = await Courses.add(course);

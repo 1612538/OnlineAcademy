@@ -51,7 +51,6 @@ router.get('/CreateCourse', async(req, res) => {
         slidepreview: '/tmp/my-uploads/' + req.files['slideInput'][0].filename,
         subscribes: 0,
         previewvideo: '/tmp/my-uploads/' + req.files['videoInput'][0].filename,
-        isBlocked: 0,
         views: 0,
     }
     const row = await Courses.add(course);
