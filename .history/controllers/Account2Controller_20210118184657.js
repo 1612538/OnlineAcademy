@@ -46,13 +46,9 @@ router.post('/myAccount/editInformation', async(req, res) => {
     } else {
         const check = await Teachers.getByEmail(req.body.email);
         const check2 = await Users.getByEmail(req.body.email);
-        if (check != null) {
-            if (req.body.username != check.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
-        } else if (check2 != null) {
-            if (req.body.username != check2.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
-        } else {
+        if (check != null || check2 != null)
+            return res.redirect('/myAccount?message=Fail updating: New email has already been used. Please try again');
+        else {
             const entity = {
                 username: req.body.username,
                 password: await bcrypt.hashPassword(req.body.password),

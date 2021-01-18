@@ -42,17 +42,14 @@ router.post('/myAccount/editInformation', async(req, res) => {
             username: req.body.username,
             password: await bcrypt.hashPassword(req.body.password),
         }
+        return res.redirect('/myAccount?message=Account Updated');
         const row = await admins.updateByEntity(entity);
     } else {
         const check = await Teachers.getByEmail(req.body.email);
         const check2 = await Users.getByEmail(req.body.email);
-        if (check != null) {
-            if (req.body.username != check.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
-        } else if (check2 != null) {
-            if (req.body.username != check2.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
-        } else {
+        if (check != null || check2 != null)
+            return res.redirect('/myAccount?message=Fail updating: New email has already been used. Please try again');
+        else {
             const entity = {
                 username: req.body.username,
                 password: await bcrypt.hashPassword(req.body.password),
@@ -67,9 +64,10 @@ router.post('/myAccount/editInformation', async(req, res) => {
             } else {
                 const row = await users.updateByEntity(entity);
             }
+            return res.redirect('/myAccount?message=Account Updated');
         }
     }
-    return res.redirect('/myAccount?message=Account Updated');
+    return res.redirect('/myAccount');
 })
 
 router.get('/mainboard1', async(req, res) => {

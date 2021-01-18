@@ -48,10 +48,10 @@ router.post('/myAccount/editInformation', async(req, res) => {
         const check2 = await Users.getByEmail(req.body.email);
         if (check != null) {
             if (req.body.username != check.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
+                return res.redirect('/myAccount?message=Fail updating: New email has already been used. Please try again');
         } else if (check2 != null) {
             if (req.body.username != check2.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
+                return res.redirect('/myAccount?message=Fail updating: New email has already been used. Please try again');
         } else {
             const entity = {
                 username: req.body.username,

@@ -46,27 +46,21 @@ router.post('/myAccount/editInformation', async(req, res) => {
     } else {
         const check = await Teachers.getByEmail(req.body.email);
         const check2 = await Users.getByEmail(req.body.email);
-        if (check != null) {
-            if (req.body.username != check.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
-        } else if (check2 != null) {
-            if (req.body.username != check2.username)
-                return res.redirect('/myAccount?message=Fail updating: New email has already been used.');
+        if (check != null || check2 != null)
+            return res.redirect('/myAccount?message=Fail updating: New email has already been used. Please try again');
+        const entity = {
+            username: req.body.username,
+            password: await bcrypt.hashPassword(req.body.password),
+            email: req.body.email,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname
+        }
+        if (req.user.type === 2) {
+            entity.workplace = req.body.workplace;
+            entity.overview = req.body.overview;
+            const row = await teachers.updateByEntity(entity);
         } else {
-            const entity = {
-                username: req.body.username,
-                password: await bcrypt.hashPassword(req.body.password),
-                email: req.body.email,
-                firstname: req.body.firstname,
-                lastname: req.body.lastname
-            }
-            if (req.user.type === 2) {
-                entity.workplace = req.body.workplace;
-                entity.overview = req.body.overview;
-                const row = await teachers.updateByEntity(entity);
-            } else {
-                const row = await users.updateByEntity(entity);
-            }
+            const row = await users.updateByEntity(entity);
         }
     }
     return res.redirect('/myAccount?message=Account Updated');
