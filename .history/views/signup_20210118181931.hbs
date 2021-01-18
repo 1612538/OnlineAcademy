@@ -40,7 +40,7 @@
 						<span class="focus-input100-2"></span>
 					</div>
 					<div class="m-t-20">
-						<div id="message" class="alert alert-danger d-none"></div>
+						<div id="message" class="text-danger"></div>
 						{{#if fail}}
 						{{>signup/failed}}
 						{{/if}}
@@ -66,7 +66,7 @@
 function validateForm() {
   let x = document.forms["myForm"]["password"].value;
   let y = document.forms["myForm"]["password2"].value;
-  document.getElementById('message').classList.remove('d-none');
+  document.getElementById('message').style.color = 'red';
   let text = "";
   if (x.length < 7) {
     text = "Password must be longer than 6";

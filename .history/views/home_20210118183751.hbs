@@ -17,7 +17,7 @@
                 <div class="carousel-inner">
                     {{#each course}}
                     <div class="carousel-item {{#if_eq @key 0}}active{{/if_eq}}">
-                        <a href="/detail/courseid={{idcourses}}"><img class="d-block imgBig" src="{{img}}" alt="First slide"></a>
+                        <a href="/detail/courseid={{course.idcourses}}"><img class="d-block imgBig" src="{{img}}" alt="First slide"></a>
                         <div class="carousel-caption d-none d-md-block fade">
                             <h5 style="background-color:rgba(255,255,255, 0.5); color:black">{{name}}</h5>
                             <h6 style="background-color:rgba(255,255,255, 0.5); color: black">{{description1}}</h6>
